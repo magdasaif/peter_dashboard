@@ -1,0 +1,20 @@
+1-Design Patterns
+2-Functional Programming
+
+3-GraphQL
+4-Headless CMS (Strapi.io, october.com, appwrite)
+
+5-Agile
+6-Programming using local Docker images
+7-Instant Search ( Elastic Search, Algolia, ... )
+
+8-Payment Gateways Integration ( PayPal, MyFattorah, Stripe, ... )
+9-Notifications ( Posher, firebase, .... )
+10-SMS integration
+
+11-Clean Coding
+12-MicroServices ( Laravel/Lumen ) vs Moralise 
+13-Testing ( UTD, TDD, BDD, ... )
+14-Conventions ( Code Readability ), Complexity
+15-realtime [chat,notifaction,card]
+16-socail authentication 

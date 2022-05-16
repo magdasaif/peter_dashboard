@@ -1,0 +1,74 @@
+//--------------------(Polymorphic)------------------------------
+
+php artisan make:model Image -m
+
+- one-to-one
+	لو الطالب ليه صوره واحده بس مش اكتر مثلا او الاعدادت ومن نحن ممكن يكون ليهم صوره واحده بس
+
+class Post extends Model
+{
+    /**
+     * Get the post's image.
+     */
+    public function image()
+    {
+        return $this->morphOne(Image::class, 'imageable');
+    }
+}
+
+
+
+class Image extends Model
+{
+    /**
+     * Get the parent imageable model (user or post).
+     */
+    public function imageable()
+    {
+        return $this->morphTo();
+    }
+}
+ 
+class Post extends Model
+{
+    /**
+     * Get the post's image.
+     */
+    public function image()
+    {
+        return $this->morphOne(Image::class, 'imageable');
+    }
+}
+
+
+- one-to-many
+	لو الطالب ليه اكتر من صوره
+
+class Post extends Model
+{
+    /**
+     * Get the post's image.
+     */
+    public function images()
+    {
+        return $this->morphMany(Image::class, 'imageable');
+    }
+}
+
+
+
+class Image extends Model
+{
+    /**
+     * Get the parent imageable model (user or post).
+     */
+    public function imageable()
+    {
+        return $this->morphTo();
+    }
+}
+
+//---- retreive post images
+use App\Models\Post;
+$post = Post::find(1);
+$image = $post->image; //echo $image->filename

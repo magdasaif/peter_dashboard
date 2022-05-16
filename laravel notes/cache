@@ -1,0 +1,99 @@
+https://github.com/codewithdary/laravel-cache
+
+//*************
+You can definitely say that a cache looks like a session. You definitely use them in the same exact way, since you need to provide a key to store them.
+
+Of course, there are differences. Sessions are used to store data between page requests while a cache is used to cache data per application.
+
+//*************
+different cache driver options.
+1- File
+     the default one.The file driver will create a new encrypted file per cache in /storage/framework/cache folder.
+
+
+2- Array
+    The second available driver is the array driver. This is just a simple array where you will store your cache. The advantage of using the array driver is the fact that you don’t need to configure a driver.
+
+    CACHE_DRIVER=array
+
+
+3- Database
+
+    This will store your cache in memory for the current PHP process.
+
+    In order to use the database driver, you got to make sure that you create a database table through artisan.
+
+    php artisan cache:table
+
+    I don’t recommend using the database driver in real life examples.
+
+    CACHE_DRIVER=database
+
+
+
+
+php artisan make:model City -fmr
+
+php artisan make:event CityCreated
+php artisan make:listener CityCacheListener
+================================================================================================================================================================================================================================================
+
+
+//----------------------------------------------------------cashing---------------------------------------
+
+
+==  فى حالة عمل ريكويست واستقبال الريسبونس لو ف داتا متكررة فده هيعمل بطء ف المشروع وباستخدام الكاش بحل المشكلة دى 
+== لتخزين البيانات فى الميمورى بشكل بمؤقت
+== يتم استرجاع البيانات من الكاش باستخدام احد سيرفراتها وده بدل من استراجاعها من الداتا بيز وده بيكون اسرع وسيرفراتها مثل redis
+لاعداد الكاش 
+1- config->Cache.php -------> 'default' => env('Cache_DRIVER', 'file'), --.الكاش عبارة عن ملف بيتم فيه تخزين المعلومات لا بأس به فى مرحلة التطوير
+2- لكن فى مرحلة ال
+ production يفضل استخدام احد  السيرفرين redis--- mecasched
+ 3- الكاش سيرفر بيتم تحديده فى ملف .env
+ 4-لادارة البيانت داخل الكاش 
+=================الحفظ========================
+Cache:put("key","value","10") --->10 ----عدد الدقايق لحفظ هذه القيم
+Cache:add("key","","10") ---------بتخزن البيانات لو مش موجودة 
+Cache:forever("key","","10")---------بتخزن البيانات بصورة ابدية 
+==================استرجاع البيانات========================
+Cache:get(key,default)----يتم استراجاع البيانات من الكاش
+Cache:pull() ----يتم استراجاع البيانات وحذفها من الكاش
+=======================حذف من الكاش======================
+
+Cache:forget(key)----يتم حذف قيمة معينة من الكاش  
+Cache:flush()----يتم حذف جميع البيانات من الكاش  
+
+
+
+
+Cache::remeber(key,time,value) // this check if found data in cache or not ,if not retreive it from db
+
+=========================================== 
+
+للتحقق من وجود  
+key معين
+ بيتم عن طريق 
+ $check=0;
+ if(Cache::has(key))  
+{
+     $check=1;
+}
+
+==================================================
+اذا تمت ادارة البيانات من ال 
+Cach facade
+ مباشرة
+    سيتم استخدام الكاش سيرفر الموجود ومحدد فى ملف ال 
+  .env
+
+  ================================================
+   يمكن  استخدام اكتر من سيرفر فى نفس الوقت  عن طريق استدعاء دالة 
+  store(اسم السيرفر)
+
+  مثال
+  Cache:store("redis")->put("key","value from redis server","10");
+  $key=store("redis")->get("key","default");
+  return  $key;
+
+  ===========================================
+  composer require predis/predis

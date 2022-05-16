@@ -1,25 +1,27 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AdminController;
-use App\Http\Controllers\NotificationsController;
-use App\Http\Controllers\HelperController;
+use App\Http\Controllers\FileController;
+use App\Http\Controllers\MenuController;
+use App\Http\Controllers\PageController;
 use App\Http\Controllers\TestController;
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\ArticleController;
-use App\Http\Controllers\SiteMapController;
-use App\Http\Controllers\SettingController;
-use App\Http\Controllers\ContactController;
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\RedirectionController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\FrontController;
+use App\Http\Controllers\HelperController;
+use App\Http\Controllers\SearchController;
+use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SettingController;
+use App\Http\Controllers\SiteMapController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\MenuLinkController;
 use App\Http\Controllers\TrafficsController;
 use App\Http\Controllers\FooterLinkController;
-use App\Http\Controllers\PageController;
-use App\Http\Controllers\MenuController;
-use App\Http\Controllers\MenuLinkController;
-use App\Http\Controllers\FileController;
+use App\Http\Controllers\RedirectionController;
+use App\Http\Controllers\NotificationsController;
 
 
 
@@ -77,6 +79,12 @@ Route::prefix('admin')->middleware(['auth','CheckRole:ADMIN','ActiveAccount'])->
         Route::get('/',[SettingController::class,'index'])->name('index');
         Route::put('/update',[SettingController::class,'update'])->name('update');
     });
+
+
+    Route::resource('search',SearchController::class);
+
+
+
 });
 
 
@@ -98,3 +106,5 @@ Route::get('category/{category}',[FrontController::class,'category'])->name('cat
 Route::get('article/{article}',[FrontController::class,'article'])->name('article.show');
 Route::get('blog',[FrontController::class,'blog'])->name('blog');
 Route::post('contact',[FrontController::class,'contact_post'])->name('contact-post');
+
+

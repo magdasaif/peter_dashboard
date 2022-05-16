@@ -1,0 +1,1572 @@
+﻿git clone --branch dev ssh://git/training/eradco/backend
+git clone --branch dev ssh://git/training/eradco/dashboard
+
+git clone https://github.com/peter-tharwat/dashboard
+
+git clone https://git.murabba.com/MD/dev/eradco/kasrchem/backend
+git remote set-url origin ssh://git/training/eradco/backend
+
+git remote set-url origin https://github.com/MostafaAlii/agriculture
+ git remote get-url origin
+
+git clone https://github.com/MostafaAlii/agriculture agro2
+
+ELMESTAR@DESKTOP-G9HMQJE MINGW64 /c/wamp64/www/eradco
+$ git init
+Initialized empty Git repository in C:/wamp64/www/eradco/.git/
+
+ELMESTAR@DESKTOP-G9HMQJE MINGW64 /c/wamp64/www/eradco (master)
+$ git status
+On branch master
+
+No commits yet
+ادخلى بعتل
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        .editorconfig
+        .env.example
+        .gitattributes
+        .gitignore
+        .styleci.yml
+        README.md
+        app/
+        artisan
+        bootstrap/
+        composer.json
+        composer.lock
+        config/
+        database/
+        package.json
+        phpunit.xml
+        public/
+        resources/
+        routes/
+        server.php
+        storage/
+        tests/
+        webpack.mix.js
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+ELMESTAR@DESKTOP-G9HMQJE MINGW64 /c/wamp64/www/eradco (master)
+$ git add .
+warning: LF will be replaced by CRLF in .editorconfig.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in .env.example.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in .gitattributes.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in .gitignore.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in .styleci.yml.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in README.md.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in app/Console/Kernel.php.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in app/Exceptions/Handler.php.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in app/Http/Controllers/Api/SubCategoryController1.php.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in app/Http/Controllers/Category/SubcategoryController1.php.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in app/Http/Controllers/Controller.php.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in app/Http/Kernel.php.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in app/Http/Middleware/Authenticate.php.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in app/Http/Middleware/EncryptCookies.php.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in app/Http/Middleware/PreventRequestsDuringMaintenance.php.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in app/Http/Middleware/RedirectIfAuthenticated.php.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in app/Http/Middleware/TrimStrings.php.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in app/Http/Middleware/TrustHosts.php.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in app/Http/Middleware/TrustProxies.php.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in app/Http/Middleware/VerifyCsrfToken.php.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in app/Http/Requests/CategoryRequest.php.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in app/Models/Main_Category.php.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in app/Models/Sitesection.php.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in app/Models/User.php.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in app/Providers/AppServiceProvider.php.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in app/Providers/AuthServiceProvider.php.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in app/Providers/BroadcastServiceProvider.php.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in app/Providers/EventServiceProvider.php.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in app/Providers/RouteServiceProvider.php.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in artisan.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in bootstrap/app.php.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in bootstrap/cache/.gitignore.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in composer.json.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in composer.lock.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in config/app.php.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in config/auth.php.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in config/broadcasting.php.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in config/cache.php.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in config/cors.php.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in config/database.php.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in config/filesystems.php.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in config/hashing.php.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in config/logging.php.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in config/mail.php.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in config/queue.php.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in config/sanctum.php.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in config/services.php.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in config/session.php.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in config/view.php.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in database/.gitignore.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in database/factories/UserFactory.php.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in database/migrations/2014_10_12_000000_create_users_table.php.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in database/migrations/2014_10_12_100000_create_password_resets_table.php.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in database/migrations/2019_08_19_000000_create_failed_jobs_table.php.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in database/migrations/2019_12_14_000001_create_personal_access_tokens_table.php.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in database/migrations/2021_12_27_111658_create_sitesections_table.php.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in database/migrations/2021_12_28_110901_create_main__categories_table.php.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in database/seeders/DatabaseSeeder.php.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in package.json.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in phpunit.xml.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in public/.htaccess.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in public/assets/css/ltr.css.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in public/assets/css/plugins/bootstrap-colorpicker.css.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in public/assets/css/plugins/bootstrap-colorpicker.min.css.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in public/assets/css/plugins/bootstrap-datepicker.css.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in public/assets/css/plugins/bootstrap-touchspin.css.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in public/assets/css/plugins/bootstrap-touchspin.min.css.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in public/assets/css/plugins/bootstrap.css.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in public/assets/css/plugins/bootstrap.min.css.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in public/assets/css/plugins/dataTables.bootstrap4.css.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in public/assets/css/plugins/dataTables.bootstrap4.min.css.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in public/assets/css/plugins/font-awesome.css.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in public/assets/css/plugins/font-awesome.min.css.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in public/assets/css/plugins/fullcalendar.css.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in public/assets/css/plugins/fullcalendar.min.css.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in public/assets/css/plugins/jquery-jvectormap.css.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in public/assets/css/plugins/jquery.steps.css.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in public/assets/css/plugins/lobilist.css.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in public/assets/css/plugins/semantic.css.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in public/assets/css/plugins/simplemde.css.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in public/assets/css/plugins/simplemde.min.css.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in public/assets/css/plugins/summernote.css.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in public/assets/css/plugins/summernote.min.css.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in public/assets/css/plugins/themify-icons.css.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in public/assets/css/plugins/toastr.css.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in public/assets/css/plugins/weather-icons.css.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in public/assets/css/plugins/weather-icons.min.css.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in public/assets/css/rtl.css.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in public/assets/fonts/fontawesome-webfont.svg.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in public/assets/fonts/themify.svg.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in public/assets/fonts/weathericons-regular-webfont.svg.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in public/assets/images/pre-loader/loader-01.svg.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in public/assets/js/bootstrap-datatables/dataTables.bootstrap4.min.js.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in public/assets/js/bootstrap-datatables/jquery.dataTables.min.js.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in public/assets/js/calendar.init.js.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in public/assets/js/chart-init.js.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in public/assets/js/counter/jquery.countTo.js.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in public/assets/js/custom.js.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in public/assets/js/datepicker.js.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in public/assets/js/easy-pie-chart/easy-pie-chart.js.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in public/assets/js/jquery-3.3.1.min.js.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in public/assets/js/jquery-nice-select/jquery-nice-select.js.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in public/assets/js/jvectormap/jquery-jvectormap-2.0.3.min.js.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in public/assets/js/jvectormap/jquery-jvectormap-init.js.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in public/assets/js/lobilist.js.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in public/assets/js/morris.init.js.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in public/assets/js/nicescroll/jquery.nicescroll.js.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in public/assets/js/plugins-jquery.js.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in public/assets/js/sparkline.init.js.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in public/assets/js/sweetalert2.all.js.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in public/assets/js/sweetalert2.js.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in public/assets/js/toastr.js.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in public/assets/js/validation.js.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in public/css/app.css.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in public/index.php.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in public/js/app.js.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in public/mix-manifest.json.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in public/robots.txt.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in public/scss/_helpers.scss.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in public/scss/_layout.scss.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in public/scss/_mixins.scss.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in public/scss/_plugins.scss.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in public/scss/_responsive.scss.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in public/scss/_sidebar.scss.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in public/scss/_typography.scss.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in public/scss/_variables.scss.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in public/scss/components/_accordion.scss.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in public/scss/components/_button.scss.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in public/scss/components/_list-style.scss.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in public/scss/components/_nice-select.scss.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in public/scss/components/_owl-carousel.scss.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in public/scss/components/_pricing.scss.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in public/scss/components/_social-icon.scss.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in public/scss/components/_tabs.scss.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in public/scss/plugins/bootstrap-colorpicker.scss.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in public/scss/plugins/bootstrap-datepicker.scss.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in public/scss/plugins/bootstrap-touchspin.scss.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in public/scss/plugins/bootstrap.scss.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in public/scss/plugins/dataTables.bootstrap4.scss.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in public/scss/plugins/font-awesome.scss.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in public/scss/plugins/fullcalendar.scss.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in public/scss/plugins/jquery-jvectormap.scss.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in public/scss/plugins/jquery.steps.scss.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in public/scss/plugins/lobilist.scss.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in public/scss/plugins/semantic.scss.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in public/scss/plugins/simplemde.scss.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in public/scss/plugins/summernote.scss.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in public/scss/plugins/themify-icons.scss.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in public/scss/plugins/toastr.scss.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in public/scss/plugins/weather-icons.scss.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in public/scss/style.scss.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in public/web.config.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in resources/js/app.js.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in resources/js/bootstrap.js.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in resources/lang/en/auth.php.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in resources/lang/en/pagination.php.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in resources/lang/en/passwords.php.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in resources/lang/en/validation.php.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in resources/views/categories/category.blade.php.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in resources/views/empty.blade.php.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in resources/views/layouts/app.blade.php.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in resources/views/layouts/footer-scripts.blade.php.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in resources/views/layouts/footer.blade.php.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in resources/views/layouts/head.blade.php.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in resources/views/layouts/main-header.blade.php.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in resources/views/layouts/main-sidebar.blade.php.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in resources/views/layouts/master.blade.php.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in resources/views/welcome.blade.php.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in routes/api.php.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in routes/channels.php.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in routes/console.php.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in routes/web.php.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in server.php.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in storage/app/.gitignore.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in storage/app/public/.gitignore.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in storage/framework/.gitignore.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in storage/framework/cache/.gitignore.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in storage/framework/cache/data/.gitignore.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in storage/framework/sessions/.gitignore.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in storage/framework/testing/.gitignore.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in storage/framework/views/.gitignore.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in storage/logs/.gitignore.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in tests/CreatesApplication.php.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in tests/Feature/ExampleTest.php.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in tests/TestCase.php.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in tests/Unit/ExampleTest.php.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in webpack.mix.js.
+The file will have its original line endings in your working directory
+
+ELMESTAR@DESKTOP-G9HMQJE MINGW64 /c/wamp64/www/eradco (master)
+$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   .editorconfig
+        new file:   .env.example
+        new file:   .gitattributes
+        new file:   .gitignore
+        new file:   .styleci.yml
+        new file:   README.md
+        new file:   app/Console/Kernel.php
+        new file:   app/Exceptions/Handler.php
+        new file:   app/Http/Controllers/Api/SubCategoryController1.php
+        new file:   app/Http/Controllers/Category/SubcategoryController1.php
+        new file:   app/Http/Controllers/Controller.php
+        new file:   app/Http/Kernel.php
+        new file:   app/Http/Middleware/Authenticate.php
+        new file:   app/Http/Middleware/EncryptCookies.php
+        new file:   app/Http/Middleware/PreventRequestsDuringMaintenance.php
+        new file:   app/Http/Middleware/RedirectIfAuthenticated.php
+        new file:   app/Http/Middleware/TrimStrings.php
+        new file:   app/Http/Middleware/TrustHosts.php
+        new file:   app/Http/Middleware/TrustProxies.php
+        new file:   app/Http/Middleware/VerifyCsrfToken.php
+        new file:   app/Http/Requests/CategoryRequest.php
+        new file:   app/Models/Main_Category.php
+        new file:   app/Models/Sitesection.php
+        new file:   app/Models/User.php
+        new file:   app/Providers/AppServiceProvider.php
+        new file:   app/Providers/AuthServiceProvider.php
+        new file:   app/Providers/BroadcastServiceProvider.php
+        new file:   app/Providers/EventServiceProvider.php
+        new file:   app/Providers/RouteServiceProvider.php
+        new file:   app/Traits/CategoryTrait.php
+        new file:   artisan
+        new file:   bootstrap/app.php
+        new file:   bootstrap/cache/.gitignore
+        new file:   composer.json
+        new file:   composer.lock
+        new file:   config/app.php
+        new file:   config/auth.php
+        new file:   config/broadcasting.php
+        new file:   config/cache.php
+        new file:   config/cors.php
+        new file:   config/database.php
+        new file:   config/filesystems.php
+        new file:   config/hashing.php
+        new file:   config/logging.php
+        new file:   config/mail.php
+        new file:   config/queue.php
+        new file:   config/sanctum.php
+        new file:   config/services.php
+        new file:   config/session.php
+        new file:   config/view.php
+        new file:   database/.gitignore
+        new file:   database/factories/UserFactory.php
+        new file:   database/migrations/2014_10_12_000000_create_users_table.php
+        new file:   database/migrations/2014_10_12_100000_create_password_resets_table.php
+        new file:   database/migrations/2019_08_19_000000_create_failed_jobs_table.php
+        new file:   database/migrations/2019_12_14_000001_create_personal_access_tokens_table.php
+        new file:   database/migrations/2021_12_27_111658_create_sitesections_table.php
+        new file:   database/migrations/2021_12_28_110901_create_main__categories_table.php
+        new file:   database/seeders/DatabaseSeeder.php
+        new file:   package.json
+        new file:   phpunit.xml
+        new file:   public/.htaccess
+        new file:   public/assets/css/ltr.css
+        new file:   public/assets/css/plugins/bootstrap-colorpicker.css
+        new file:   public/assets/css/plugins/bootstrap-colorpicker.min.css
+        new file:   public/assets/css/plugins/bootstrap-datepicker.css
+        new file:   public/assets/css/plugins/bootstrap-touchspin.css
+        new file:   public/assets/css/plugins/bootstrap-touchspin.min.css
+        new file:   public/assets/css/plugins/bootstrap.css
+        new file:   public/assets/css/plugins/bootstrap.min.css
+        new file:   public/assets/css/plugins/dataTables.bootstrap4.css
+        new file:   public/assets/css/plugins/dataTables.bootstrap4.min.css
+        new file:   public/assets/css/plugins/font-awesome.css
+        new file:   public/assets/css/plugins/font-awesome.min.css
+        new file:   public/assets/css/plugins/fullcalendar.css
+        new file:   public/assets/css/plugins/fullcalendar.min.css
+        new file:   public/assets/css/plugins/jquery-jvectormap.css
+        new file:   public/assets/css/plugins/jquery.steps.css
+        new file:   public/assets/css/plugins/lobilist.css
+        new file:   public/assets/css/plugins/semantic.css
+        new file:   public/assets/css/plugins/simplemde.css
+        new file:   public/assets/css/plugins/simplemde.min.css
+        new file:   public/assets/css/plugins/summernote.css
+        new file:   public/assets/css/plugins/summernote.min.css
+        new file:   public/assets/css/plugins/themify-icons.css
+        new file:   public/assets/css/plugins/toastr.css
+        new file:   public/assets/css/plugins/weather-icons.css
+        new file:   public/assets/css/plugins/weather-icons.min.css
+        new file:   public/assets/css/rtl.css
+        new file:   public/assets/fonts/FontAwesome.otf
+        new file:   public/assets/fonts/fontawesome-webfont.eot
+        new file:   public/assets/fonts/fontawesome-webfont.svg
+        new file:   public/assets/fonts/fontawesome-webfont.ttf
+        new file:   public/assets/fonts/fontawesome-webfont.woff
+        new file:   public/assets/fonts/fontawesome-webfont.woff2
+        new file:   public/assets/fonts/summernote.eot
+        new file:   public/assets/fonts/summernote.ttf
+        new file:   public/assets/fonts/summernote.woff
+        new file:   public/assets/fonts/themify.eot
+        new file:   public/assets/fonts/themify.svg
+        new file:   public/assets/fonts/themify.ttf
+        new file:   public/assets/fonts/themify.woff
+        new file:   public/assets/fonts/weathericons-regular-webfont.eot
+        new file:   public/assets/fonts/weathericons-regular-webfont.svg
+        new file:   public/assets/fonts/weathericons-regular-webfont.ttf
+        new file:   public/assets/fonts/weathericons-regular-webfont.woff
+        new file:   public/assets/fonts/weathericons-regular-webfont.woff2
+        new file:   public/assets/images/Thumbs.db
+        new file:   public/assets/images/bg/01.jpg
+        new file:   public/assets/images/bg/Thumbs.db
+        new file:   public/assets/images/blog/01.jpg
+        new file:   public/assets/images/blog/02.jpg
+        new file:   public/assets/images/blog/03.jpg
+        new file:   public/assets/images/blog/04.jpg
+        new file:   public/assets/images/blog/05.jpg
+        new file:   public/assets/images/blog/06.jpg
+        new file:   public/assets/images/blog/07.jpg
+        new file:   public/assets/images/blog/08.jpg
+        new file:   public/assets/images/blog/09.jpg
+        new file:   public/assets/images/blog/10.jpg
+        new file:   public/assets/images/blog/Thumbs.db
+        new file:   public/assets/images/error.png
+        new file:   public/assets/images/favicon.ico
+        new file:   public/assets/images/file-icon/AVI.png
+        new file:   public/assets/images/file-icon/BMP.png
+        new file:   public/assets/images/file-icon/CAD.png
+        new file:   public/assets/images/file-icon/DLL.png
+        new file:   public/assets/images/file-icon/EPS.png
+        new file:   public/assets/images/file-icon/PDF.png
+        new file:   public/assets/images/file-icon/PNG.png
+        new file:   public/assets/images/file-icon/PS.png
+        new file:   public/assets/images/file-icon/PSD.png
+        new file:   public/assets/images/file-icon/SQL.png
+        new file:   public/assets/images/file-icon/TXT.png
+        new file:   public/assets/images/file-icon/Thumbs.db
+        new file:   public/assets/images/file-icon/ZIP.png
+        new file:   public/assets/images/flags/AD.png
+        new file:   public/assets/images/flags/AE.png
+        new file:   public/assets/images/flags/AG.png
+        new file:   public/assets/images/flags/AM.png
+        new file:   public/assets/images/flags/AR.png
+        new file:   public/assets/images/flags/AT.png
+        new file:   public/assets/images/flags/AU.png
+        new file:   public/assets/images/flags/BE.png
+        new file:   public/assets/images/flags/BF.png
+        new file:   public/assets/images/flags/BG.png
+        new file:   public/assets/images/flags/BO.png
+        new file:   public/assets/images/flags/BR.png
+        new file:   public/assets/images/flags/CA.png
+        new file:   public/assets/images/flags/CD.png
+        new file:   public/assets/images/flags/CG.png
+        new file:   public/assets/images/flags/CH.png
+        new file:   public/assets/images/flags/CL.png
+        new file:   public/assets/images/flags/CM.png
+        new file:   public/assets/images/flags/CN.png
+        new file:   public/assets/images/flags/CO.png
+        new file:   public/assets/images/flags/CZ.png
+        new file:   public/assets/images/flags/DE.png
+        new file:   public/assets/images/flags/DJ.png
+        new file:   public/assets/images/flags/DK.png
+        new file:   public/assets/images/flags/DZ.png
+        new file:   public/assets/images/flags/EE.png
+        new file:   public/assets/images/flags/EG.png
+        new file:   public/assets/images/flags/ES.png
+        new file:   public/assets/images/flags/FI.png
+        new file:   public/assets/images/flags/FR.png
+        new file:   public/assets/images/flags/GA.png
+        new file:   public/assets/images/flags/GB.png
+        new file:   public/assets/images/flags/GM.png
+        new file:   public/assets/images/flags/GT.png
+        new file:   public/assets/images/flags/HN.png
+        new file:   public/assets/images/flags/HT.png
+        new file:   public/assets/images/flags/HU.png
+        new file:   public/assets/images/flags/ID.png
+        new file:   public/assets/images/flags/IE.png
+        new file:   public/assets/images/flags/IL.png
+        new file:   public/assets/images/flags/IN.png
+        new file:   public/assets/images/flags/IQ.png
+        new file:   public/assets/images/flags/IR.png
+        new file:   public/assets/images/flags/IT.png
+        new file:   public/assets/images/flags/JM.png
+        new file:   public/assets/images/flags/JO.png
+        new file:   public/assets/images/flags/JP.png
+        new file:   public/assets/images/flags/KG.png
+        new file:   public/assets/images/flags/KN.png
+        new file:   public/assets/images/flags/KP.png
+        new file:   public/assets/images/flags/KR.png
+        new file:   public/assets/images/flags/KW.png
+        new file:   public/assets/images/flags/KZ.png
+        new file:   public/assets/images/flags/LA.png
+        new file:   public/assets/images/flags/LB.png
+        new file:   public/assets/images/flags/LC.png
+        new file:   public/assets/images/flags/LS.png
+        new file:   public/assets/images/flags/LU.png
+        new file:   public/assets/images/flags/LV.png
+        new file:   public/assets/images/flags/MG.png
+        new file:   public/assets/images/flags/MK.png
+        new file:   public/assets/images/flags/ML.png
+        new file:   public/assets/images/flags/MM.png
+        new file:   public/assets/images/flags/MT.png
+        new file:   public/assets/images/flags/MX.png
+        new file:   public/assets/images/flags/NA.png
+        new file:   public/assets/images/flags/NE.png
+        new file:   public/assets/images/flags/NG.png
+        new file:   public/assets/images/flags/NI.png
+        new file:   public/assets/images/flags/NL.png
+        new file:   public/assets/images/flags/NO.png
+        new file:   public/assets/images/flags/OM.png
+        new file:   public/assets/images/flags/PA.png
+        new file:   public/assets/images/flags/PE.png
+        new file:   public/assets/images/flags/PG.png
+        new file:   public/assets/images/flags/PK.png
+        new file:   public/assets/images/flags/PL.png
+        new file:   public/assets/images/flags/PT.png
+        new file:   public/assets/images/flags/PY.png
+        new file:   public/assets/images/flags/QA.png
+        new file:   public/assets/images/flags/RO.png
+        new file:   public/assets/images/flags/RU.png
+        new file:   public/assets/images/flags/RW.png
+        new file:   public/assets/images/flags/SA.png
+        new file:   public/assets/images/flags/SE.png
+        new file:   public/assets/images/flags/SG.png
+        new file:   public/assets/images/flags/SL.png
+        new file:   public/assets/images/flags/SN.png
+        new file:   public/assets/images/flags/SO.png
+        new file:   public/assets/images/flags/SV.png
+        new file:   public/assets/images/flags/TD.png
+        new file:   public/assets/images/flags/TJ.png
+        new file:   public/assets/images/flags/TL.png
+        new file:   public/assets/images/flags/TR.png
+        new file:   public/assets/images/flags/TZ.png
+        new file:   public/assets/images/flags/Thumbs.db
+        new file:   public/assets/images/flags/UA.png
+        new file:   public/assets/images/flags/US.png
+        new file:   public/assets/images/flags/VE.png
+        new file:   public/assets/images/flags/VN.png
+        new file:   public/assets/images/flags/YE.png
+        new file:   public/assets/images/item/01.png
+        new file:   public/assets/images/item/02.png
+        new file:   public/assets/images/item/03.png
+        new file:   public/assets/images/item/04.png
+        new file:   public/assets/images/item/Thumbs.db
+        new file:   public/assets/images/login-bg.jpg
+        new file:   public/assets/images/login-inner-bg.jpg
+        new file:   public/assets/images/logo-dark.png
+        new file:   public/assets/images/logo-icon-dark.png
+        new file:   public/assets/images/logo-icon-light.png
+        new file:   public/assets/images/logo-white.png
+        new file:   public/assets/images/pre-loader/Thumbs.db
+        new file:   public/assets/images/pre-loader/loader-01.svg
+        new file:   public/assets/images/profile-avatar.jpg
+        new file:   public/assets/images/register-bg.jpg
+        new file:   public/assets/images/register-inner-bg.jpg
+        new file:   public/assets/images/team/01.jpg
+        new file:   public/assets/images/team/02.jpg
+        new file:   public/assets/images/team/03.jpg
+        new file:   public/assets/images/team/04.jpg
+        new file:   public/assets/images/team/05.jpg
+        new file:   public/assets/images/team/06.jpg
+        new file:   public/assets/images/team/07.jpg
+        new file:   public/assets/images/team/08.jpg
+        new file:   public/assets/images/team/09.jpg
+        new file:   public/assets/images/team/10.jpg
+        new file:   public/assets/images/team/11.jpg
+        new file:   public/assets/images/team/12.jpg
+        new file:   public/assets/images/team/13.jpg
+        new file:   public/assets/images/team/14.jpg
+        new file:   public/assets/images/team/Thumbs.db
+        new file:   public/assets/images/user-bg.jpg
+        new file:   public/assets/js/bootstrap-datatables/dataTables.bootstrap4.min.js
+        new file:   public/assets/js/bootstrap-datatables/jquery.dataTables.min.js
+        new file:   public/assets/js/calendar.init.js
+        new file:   public/assets/js/chart-init.js
+        new file:   public/assets/js/counter/jquery.countTo.js
+        new file:   public/assets/js/custom.js
+        new file:   public/assets/js/datepicker.js
+        new file:   public/assets/js/easy-pie-chart/easy-pie-chart.js
+        new file:   public/assets/js/jquery-3.3.1.min.js
+        new file:   public/assets/js/jquery-nice-select/jquery-nice-select.js
+        new file:   public/assets/js/jvectormap/jquery-jvectormap-2.0.3.min.js
+        new file:   public/assets/js/jvectormap/jquery-jvectormap-asia-mill.js
+        new file:   public/assets/js/jvectormap/jquery-jvectormap-au-mill.js
+        new file:   public/assets/js/jvectormap/jquery-jvectormap-in-mill.js
+        new file:   public/assets/js/jvectormap/jquery-jvectormap-init.js
+        new file:   public/assets/js/jvectormap/jquery-jvectormap-north_america-mill.js
+        new file:   public/assets/js/jvectormap/jquery-jvectormap-us-lcc.js
+        new file:   public/assets/js/jvectormap/jquery-jvectormap-world-mill-en.js
+        new file:   public/assets/js/lobilist.js
+        new file:   public/assets/js/morris.init.js
+        new file:   public/assets/js/nicescroll/jquery.nicescroll.js
+        new file:   public/assets/js/plugins-jquery.js
+        new file:   public/assets/js/sparkline.init.js
+        new file:   public/assets/js/sweetalert2.all.js
+        new file:   public/assets/js/sweetalert2.js
+        new file:   public/assets/js/toastr.js
+        new file:   public/assets/js/validation.js
+        new file:   public/css/app.css
+        new file:   public/css/wizard.css
+        new file:   public/favicon.ico
+        new file:   public/index.php
+        new file:   public/js/app.js
+        new file:   public/mix-manifest.json
+        new file:   public/robots.txt
+        new file:   public/scss/_helpers.scss
+        new file:   public/scss/_layout.scss
+        new file:   public/scss/_mixins.scss
+        new file:   public/scss/_plugins.scss
+        new file:   public/scss/_responsive.scss
+        new file:   public/scss/_sidebar.scss
+        new file:   public/scss/_typography.scss
+        new file:   public/scss/_variables.scss
+        new file:   public/scss/components/_accordion.scss
+        new file:   public/scss/components/_button.scss
+        new file:   public/scss/components/_list-style.scss
+        new file:   public/scss/components/_nice-select.scss
+        new file:   public/scss/components/_owl-carousel.scss
+        new file:   public/scss/components/_pricing.scss
+        new file:   public/scss/components/_social-icon.scss
+        new file:   public/scss/components/_tabs.scss
+        new file:   public/scss/plugins/bootstrap-colorpicker.scss
+        new file:   public/scss/plugins/bootstrap-datepicker.scss
+        new file:   public/scss/plugins/bootstrap-touchspin.scss
+        new file:   public/scss/plugins/bootstrap.scss
+        new file:   public/scss/plugins/dataTables.bootstrap4.scss
+        new file:   public/scss/plugins/font-awesome.scss
+        new file:   public/scss/plugins/fullcalendar.scss
+        new file:   public/scss/plugins/jquery-jvectormap.scss
+        new file:   public/scss/plugins/jquery.steps.scss
+        new file:   public/scss/plugins/lobilist.scss
+        new file:   public/scss/plugins/semantic.scss
+        new file:   public/scss/plugins/simplemde.scss
+        new file:   public/scss/plugins/summernote.scss
+        new file:   public/scss/plugins/themify-icons.scss
+        new file:   public/scss/plugins/toastr.scss
+        new file:   public/scss/plugins/weather-icons.scss
+        new file:   public/scss/style.scss
+        new file:   public/web.config
+        new file:   resources/css/app.css
+        new file:   resources/js/app.js
+        new file:   resources/js/bootstrap.js
+        new file:   resources/lang/en/auth.php
+        new file:   resources/lang/en/pagination.php
+        new file:   resources/lang/en/passwords.php
+        new file:   resources/lang/en/validation.php
+        new file:   resources/views/categories/add.blade.php
+        new file:   resources/views/categories/category.blade.php
+        new file:   resources/views/categories/edit.blade.php
+        new file:   resources/views/empty.blade.php
+        new file:   resources/views/layouts/app.blade.php
+        new file:   resources/views/layouts/footer-scripts.blade.php
+        new file:   resources/views/layouts/footer.blade.php
+        new file:   resources/views/layouts/head.blade.php
+        new file:   resources/views/layouts/main-header.blade.php
+        new file:   resources/views/layouts/main-sidebar.blade.php
+        new file:   resources/views/layouts/master.blade.php
+        new file:   resources/views/welcome.blade.php
+        new file:   routes/api.php
+        new file:   routes/channels.php
+        new file:   routes/console.php
+        new file:   routes/web.php
+        new file:   server.php
+        new file:   storage/app/.gitignore
+        new file:   storage/app/public/.gitignore
+        new file:   storage/framework/.gitignore
+        new file:   storage/framework/cache/.gitignore
+        new file:   storage/framework/cache/data/.gitignore
+        new file:   storage/framework/sessions/.gitignore
+        new file:   storage/framework/testing/.gitignore
+        new file:   storage/framework/views/.gitignore
+        new file:   storage/logs/.gitignore
+        new file:   tests/CreatesApplication.php
+        new file:   tests/Feature/ExampleTest.php
+        new file:   tests/TestCase.php
+        new file:   tests/Unit/ExampleTest.php
+        new file:   webpack.mix.js
+
+
+ELMESTAR@DESKTOP-G9HMQJE MINGW64 /c/wamp64/www/eradco (master)
+$ git commit -m "try api"
+
+
+ELMESTAR@DESKTOP-G9HMQJE MINGW64 /c/wamp64/www/eradco (master)
+$ git branch -M main
+
+ELMESTAR@DESKTOP-G9HMQJE MINGW64 /c/wamp64/www/eradco (main)
+$ git remote add origin https://github.com/magdasaif/eradco.git
+
+ELMESTAR@DESKTOP-G9HMQJE MINGW64 /c/wamp64/www/eradco (main)
+$ git push -u origin main
+Enumerating objects: 424, done.
+Counting objects: 100% (424/424), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (401/401), done.
+Writing objects: 100% (424/424), 3.48 MiB | 352.00 KiB/s, done.
+Total 424 (delta 128), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (128/128), done.
+To https://github.com/magdasaif/eradco.git
+ * [new branch]      main -> main
+Branch 'main' set up to track remote branch 'main' from 'origin'.
+
+ELMESTAR@DESKTOP-G9HMQJE MINGW64 /c/wamp64/www/eradco (main)
+$ ssh-keygen.exe
+Generating public/private rsa key pair.
+Enter file in which to save the key (/c/Users/ELMESTAR/.ssh/id_rsa): m
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in m
+Your public key has been saved in m.pub
+The key fingerprint is:
+SHA256:icuYxUF019ccvRQ2A7BkbgLIRvw0QoLr6rYrU0d47So ELMESTAR@DESKTOP-G9HMQJE
+The key's randomart image is:
++---[RSA 3072]----+
+|  ..=++.. .=...O+|
+| .  .B +..+ o o.*|
+|  ....= .. + .. .|
+| .. o..+ .o    . |
+|.  o .+ S        |
+| .. .=..         |
+|.. .o.o          |
+|+.E .            |
+|+=o.             |
++----[SHA256]-----+
+
+ELMESTAR@DESKTOP-G9HMQJE MINGW64 /c/wamp64/www/eradco (main)
+$ ssh-keygen.exe
+Generating public/private rsa key pair.
+Enter file in which to save the key (/c/Users/ELMESTAR/.ssh/id_rsa):
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in /c/Users/ELMESTAR/.ssh/id_rsa
+Your public key has been saved in /c/Users/ELMESTAR/.ssh/id_rsa.pub
+The key fingerprint is:
+SHA256:EGuR47clPpUjjiwcdT0TaGt31+k9f2S+bP7CFYQ0AoU ELMESTAR@DESKTOP-G9HMQJE
+The key's randomart image is:
++---[RSA 3072]----+
+|      o. +=+.o.  |
+|      +++E+ .... |
+|     o++ . +  ...|
+|    ....* * . .o.|
+|   . o *SB o .. o|
+|    o o =      o=|
+|     .   .   . =o|
+|              +.+|
+|              o==|
++----[SHA256]-----+
+
+ELMESTAR@DESKTOP-G9HMQJE MINGW64 /c/wamp64/www/eradco (main)
+$ git init
+Reinitialized existing Git repository in C:/wamp64/www/eradco/.git/
+
+ELMESTAR@DESKTOP-G9HMQJE MINGW64 /c/wamp64/www/eradco (main)
+$ git commit -m "try api"
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        m
+        m.pub
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+ELMESTAR@DESKTOP-G9HMQJE MINGW64 /c/wamp64/www/eradco (main)
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        m
+        m.pub
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+ELMESTAR@DESKTOP-G9HMQJE MINGW64 /c/wamp64/www/eradco (main)
+$ git add .
+warning: LF will be replaced by CRLF in m.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in m.pub.
+The file will have its original line endings in your working directory
+
+ELMESTAR@DESKTOP-G9HMQJE MINGW64 /c/wamp64/www/eradco (main)
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   m
+        new file:   m.pub
+
+
+ELMESTAR@DESKTOP-G9HMQJE MINGW64 /c/wamp64/www/eradco (main)
+$ git commit -m "try api"
+[main 0e83be7] try api
+ 2 files changed, 39 insertions(+)
+ create mode 100644 m
+ create mode 100644 m.pub
+
+ELMESTAR@DESKTOP-G9HMQJE MINGW64 /c/wamp64/www/eradco (main)
+$ git push -u "https://git.murabba.com/training/eradco/backend.git" master
+error: src refspec master does not match any
+error: failed to push some refs to 'https://git.murabba.com/training/eradco/backend.git'
+
+ELMESTAR@DESKTOP-G9HMQJE MINGW64 /c/wamp64/www/eradco (main)
+$ git remote add origin git@git.murabba.com:training/eradco/backend.git
+error: remote origin already exists.
+
+ELMESTAR@DESKTOP-G9HMQJE MINGW64 /c/wamp64/www/eradco (main)
+$ git push -u origin main
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (4/4), 2.69 KiB | 2.69 MiB/s, done.
+Total 4 (delta 1), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/magdasaif/eradco.git
+   335f549..0e83be7  main -> main
+Branch 'main' set up to track remote branch 'main' from 'origin'.
+
+ELMESTAR@DESKTOP-G9HMQJE MINGW64 /c/wamp64/www/eradco (main)
+$ git push -u "https://git^C
+
+ELMESTAR@DESKTOP-G9HMQJE MINGW64 /c/wamp64/www/eradco (main)
+$ git init --initial-branch=main
+warning: re-init: ignored --initial-branch=main
+Reinitialized existing Git repository in C:/wamp64/www/eradco/.git/
+
+ELMESTAR@DESKTOP-G9HMQJE MINGW64 /c/wamp64/www/eradco (main)
+$ git init --initial-branch=mai^C
+
+ELMESTAR@DESKTOP-G9HMQJE MINGW64 /c/wamp64/www/eradco (main)
+$ git remote add origin ssh://git/training/eradco/backend.git
+error: remote origin already exists.
+
+ELMESTAR@DESKTOP-G9HMQJE MINGW64 /c/wamp64/www/eradco (main)
+$ git add .
+
+ELMESTAR@DESKTOP-G9HMQJE MINGW64 /c/wamp64/www/eradco (main)
+$ git commit -m "try api"
+On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
+
+ELMESTAR@DESKTOP-G9HMQJE MINGW64 /c/wamp64/www/eradco (main)
+$ git remote git-url origin --all
+error: Unknown subcommand: git-url
+usage: git remote [-v | --verbose]
+   or: git remote add [-t <branch>] [-m <master>] [-f] [--tags | --no-tags] [--mirror=<fetch|push>] <name> <url>
+   or: git remote rename <old> <new>
+   or: git remote remove <name>
+   or: git remote set-head <name> (-a | --auto | -d | --delete | <branch>)
+   or: git remote [-v | --verbose] show [-n] <name>
+   or: git remote prune [-n | --dry-run] <name>
+   or: git remote [-v | --verbose] update [-p | --prune] [(<group> | <remote>)...]
+   or: git remote set-branches [--add] <name> <branch>...
+   or: git remote get-url [--push] [--all] <name>
+   or: git remote set-url [--push] <name> <newurl> [<oldurl>]
+   or: git remote set-url --add <name> <newurl>
+   or: git remote set-url --delete <name> <url>
+
+    -v, --verbose         be verbose; must be placed before a subcommand
+
+
+ELMESTAR@DESKTOP-G9HMQJE MINGW64 /c/wamp64/www/eradco (main)
+$ git remote get-url origin --all
+https://github.com/magdasaif/eradco.git
+
+ELMESTAR@DESKTOP-G9HMQJE MINGW64 /c/wamp64/www/eradco (main)
+
+
+$ git remote set-url origin ssh://git/training/eradco/backend.git
+ 
+https://github.com/magdasaif/eradco.git
+
+ELMESTAR@DESKTOP-G9HMQJE MINGW64 /c/wamp64/www/eradco (main)
+$ git remote get-url origin --all
+ssh://git/training/eradco/backend.git
+
+ELMESTAR@DESKTOP-G9HMQJE MINGW64 /c/wamp64/www/eradco (main)
+$ git push -u origin main
+The authenticity of host '[git.murabba.com]:1157 ([66.7.221.182]:1157)' can't be established.
+ED25519 key fingerprint is SHA256:Ybtti3Nxq6H81MyyMMG5WEyWOeDJGz06PSz8I80Ej5o.
+This key is not known by any other names
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added '[git.murabba.com]:1157' (ED25519) to the list of known hosts.
+Enumerating objects: 428, done.
+Counting objects: 100% (428/428), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (405/405), done.
+Writing objects: 100% (428/428), 3.48 MiB | 956.00 KiB/s, done.
+Total 428 (delta 129), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (129/129), done.
+To ssh://git/training/eradco/backend.git
+ * [new branch]      main -> main
+Branch 'main' set up to track remote branch 'main' from 'origin'.
+
+ELMESTAR@DESKTOP-G9HMQJE MINGW64 /c/wamp64/www/eradco (main)
+$ git pull
+From ssh://git/training/eradco/backend
+ * [new branch]      magda      -> origin/magda
+Already up to date.
+
+ELMESTAR@DESKTOP-G9HMQJE MINGW64 /c/wamp64/www/eradco (main)
+$ git checkout magda
+Switched to a new branch 'magda'
+Branch 'magda' set up to track remote branch 'magda' from 'origin'.
+
+ELMESTAR@DESKTOP-G9HMQJE MINGW64 /c/wamp64/www/eradco (magda)
+$ git branch
+* magda
+  main
+
+
+$ git push --force
+
+
+
+----------------------------------------------------------------
+----------------------------------------------------------------
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Try the new cross-platform PowerShell https://aka.ms/pscore6
+
+PS C:\wamp64\www\eradco> php artisan serve
+Starting Laravel development server: http://127.0.0.1:8000
+[Wed Dec 29 11:15:49 2021] 127.0.0.1:52129 [200]: /favicon.ico
+[Wed Dec 29 11:16:53 2021] 127.0.0.1:52180 [200]: /favicon.ico
+Environment modified. Restarting server...
+[Wed Dec 29 11:17:19 2021] 127.0.0.1:52188 [200]: /favicon.ico
+PS C:\wamp64\www\eradco> php artisan migrate
+Migration table created successfully.
+Migrated:  2014_10_12_000000_create_users_table (71.28ms)
+Migrating: 2014_10_12_100000_create_password_resets_table
+Migrated:  2014_10_12_100000_create_password_resets_table (53.65ms)
+Migrating: 2019_08_19_000000_create_failed_jobs_table
+Migrated:  2019_08_19_000000_create_failed_jobs_table (61.43ms)
+Migrating: 2019_12_14_000001_create_personal_access_tokens_table
+Migrated:  2019_12_14_000001_create_personal_access_tokens_table (116.07ms)
+Migrating: 2021_12_27_111658_create_sitesections_table
+Migrated:  2021_12_27_111658_create_sitesections_table (9.17ms)
+Migrating: 2021_12_28_110901_create_main_categories_table
+Migrated:  2021_12_28_110901_create_main_categories_table (61.77ms)
+PS C:\wamp64\www\eradco> php artisan serve  
+Starting Laravel development server: http://127.0.0.1:8000
+[Wed Dec 29 11:18:18 2021] 127.0.0.1:52238 [200]: /assets/css/rtl.css
+[Wed Dec 29 11:18:18 2021] 127.0.0.1:52232 [200]: /css/wizard.css
+[Wed Dec 29 11:18:18 2021] 127.0.0.1:52239 [200]: /assets/js/jquery-3.3.1.min.js
+[Wed Dec 29 11:18:18 2021] 127.0.0.1:52240 [200]: /assets/js/plugins-jquery.js
+[Wed Dec 29 11:18:18 2021] 127.0.0.1:52241 [200]: /assets/js/chart-init.js
+[Wed Dec 29 11:18:20 2021] 127.0.0.1:52251 [200]: /assets/js/calendar.init.js
+[Wed Dec 29 11:18:20 2021] 127.0.0.1:52253 [200]: /assets/js/morris.init.js
+[Wed Dec 29 11:18:20 2021] 127.0.0.1:52255 [200]: /assets/fonts/fontawesome-webfont.woff2?v=4.7.0
+[Wed Dec 29 11:18:20 2021] 127.0.0.1:52262 [200]: /assets/fonts/themify.woff?-fvbane
+[Wed Dec 29 11:18:20 2021] 127.0.0.1:52264 [200]: /assets/js/datepicker.js
+[Wed Dec 29 11:18:20 2021] 127.0.0.1:52265 [200]: /assets/js/sweetalert2.js
+[Wed Dec 29 11:18:20 2021] 127.0.0.1:52266 [200]: /assets/js/toastr.js
+[Wed Dec 29 11:18:20 2021] 127.0.0.1:52267 [200]: /assets/js/validation.js
+[Wed Dec 29 11:18:20 2021] 127.0.0.1:52268 [200]: /assets/js/lobilist.js
+[Wed Dec 29 11:18:20 2021] 127.0.0.1:52270 [200]: /assets/js/custom.js
+[Wed Dec 29 11:18:21 2021] 127.0.0.1:52273 [200]: /assets/js/nicescroll/jquery.nicescroll.js
+[Wed Dec 29 11:18:21 2021] 127.0.0.1:52276 [200]: /assets/images/favicon.ico
+PS C:\wamp64\www\eradco> php artisan db:seed --class=SectionsSeeder
+
+   Illuminate\Contracts\Container\BindingResolutionException 
+
+  Target class [Database\Seeders\SectionsSeeder] does not exist.
+
+  at C:\wamp64\www\eradco\vendor\laravel\framework\src\Illuminate\Container\Container.php:879
+    875▕ 
+    876▕         try {
+    877▕             $reflector = new ReflectionClass($concrete);
+    878▕         } catch (ReflectionException $e) {
+  ➜ 879▕             throw new BindingResolutionException("Target class [$concrete] does not exist.", 0, $e);
+    880▕         }
+    881▕
+    882▕         // If the type is not instantiable, the developer is attempting to resolve
+    883▕         // an abstract type such as an Interface or Abstract Class and there is
+
+  1   C:\wamp64\www\eradco\vendor\laravel\framework\src\Illuminate\Container\Container.php:877
+      ReflectionException::("Class Database\Seeders\SectionsSeeder does not exist")
+
+  2   C:\wamp64\www\eradco\vendor\laravel\framework\src\Illuminate\Container\Container.php:877
+      ReflectionClass::__construct("Database\Seeders\SectionsSeeder")
+PS C:\wamp64\www\eradco> php artisan db:seed                       
+Seeding: Database\Seeders\SectionsSeeder
+
+   Error 
+
+  Class 'Illuminate\Database\Support\Facades\DB' not found
+
+  at C:\wamp64\www\eradco\database\seeders\SectionsSeeder.php:18
+     14▕      * @return void
+     15▕      */
+     16▕     public function run()
+     17▕     {
+  ➜  18▕         DB::table('site_sections')->delete();
+     19▕         $data=[
+     20▕            'ايرادكو الزراعية','ايرادكو للصحة العامة'
+     21▕         ];
+     22▕
+
+  1   C:\wamp64\www\eradco\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php:36
+      Database\Seeders\SectionsSeeder::run()
+
+  2   C:\wamp64\www\eradco\vendor\laravel\framework\src\Illuminate\Container\Util.php:40
+      Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+PS C:\wamp64\www\eradco> php artisan db:seed
+Seeding: Database\Seeders\SectionsSeeder
+
+   Error 
+
+  Class 'Illuminate\Database\Support\Facades\DB' not found      
+
+  at C:\wamp64\www\eradco\database\seeders\SectionsSeeder.php:18
+     14▕      * @return void
+     16▕     public function run()
+     17▕     {
+  ➜  18▕         DB::table('site_sections')->delete();
+     19▕
+     20▕       //  $data=[   'ايرادكو الزراعية','ايرادكو للصحة العامة'    ];
+     21▕
+     22▕         $data=[
+
+  1   C:\wamp64\www\eradco\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php:36
+      Database\Seeders\SectionsSeeder::run()
+
+  2   C:\wamp64\www\eradco\vendor\laravel\framework\src\Illuminate\Container\Util.php:40
+      Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+PS C:\wamp64\www\eradco> php artisan db:seed
+Seeding: Database\Seeders\SectionsSeeder
+
+   Error 
+
+  Class 'Illuminate\Database\Support\Facades\DB' not found
+
+  at C:\wamp64\www\eradco\database\seeders\SectionsSeeder.php:18
+     14▕      * @return void
+     16▕     public function run()
+     17▕     {
+  ➜  18▕         DB::table('site_sections')->delete();
+     19▕
+     20▕
+     21▕         $data=[
+     22▕            'x','y'
+
+  1   C:\wamp64\www\eradco\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php:36
+      Database\Seeders\SectionsSeeder::run()
+
+  2   C:\wamp64\www\eradco\vendor\laravel\framework\src\Illuminate\Container\Util.php:40
+      Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+PS C:\wamp64\www\eradco> php artisan db:seed
+Seeding: Database\Seeders\SectionsSeeder
+
+   Error 
+
+  Class 'Illuminate\Database\Support\Facades\DB' not found
+
+  at C:\wamp64\www\eradco\database\seeders\SectionsSeeder.php:18
+     14▕      * @return void
+     16▕     public function run()
+     17▕     {
+  ➜  18▕         DB::table('site_sections')->delete();
+     20▕
+     21▕         $data=[
+     22▕            'x','y'
+
+  1   C:\wamp64\www\eradco\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php:36
+      Database\Seeders\SectionsSeeder::run()
+  2   C:\wamp64\www\eradco\vendor\laravel\framework\src\Illuminate\Container\Util.php:40
+      Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+PS C:\wamp64\www\eradco> php artisan db:seed
+Seeding: Database\Seeders\SectionsSeeder
+Seeded:  Database\Seeders\SectionsSeeder (44.81ms)
+Database seeding completed successfully.
+PS C:\wamp64\www\eradco> php artisan db:seed
+Seeding: Database\Seeders\SectionsSeeder
+Seeded:  Database\Seeders\SectionsSeeder (13.65ms)
+Database seeding completed successfully.
+PS C:\wamp64\www\eradco> php artisan db:seed
+Seeding: Database\Seeders\SectionsSeeder
+
+   Illuminate\Database\QueryException 
+
+  SQLSTATE[HY000]: General error: 1364 Field 'image' doesn't have a default value (SQL: insert into `site_sections` (`site_name_ar`, `site_name_en`, 
+`updated_at`, `created_at`) values (ايرادكو الزراعية, ايرادكو الزراعية, 2021-12-29 09:35:23, 2021-12-29 09:35:23))
+
+  at C:\wamp64\www\eradco\vendor\laravel\framework\src\Illuminate\Database\Connection.php:703
+    699▕         // If an exception occurs when attempting to run a query, we'll format the error
+    700▕         // message to include the bindings with SQL, which will make this exception a
+    701▕         // lot more helpful to the developer instead of just the database's errors.
+    702▕         catch (Exception $e) {
+  ➜ 703▕             throw new QueryException(
+    704▕                 $query, $this->prepareBindings($bindings), $e
+    705▕             );
+    706▕         }
+    707▕     }
+
+  1   C:\wamp64\www\eradco\vendor\laravel\framework\src\Illuminate\Database\Connection.php:492
+      PDOException::("SQLSTATE[HY000]: General error: 1364 Field 'image' doesn't have a default value")
+
+  2   C:\wamp64\www\eradco\vendor\laravel\framework\src\Illuminate\Database\Connection.php:492
+      PDOStatement::execute()
+PS C:\wamp64\www\eradco> php artisan db:seed
+Seeding: Database\Seeders\SectionsSeeder
+
+   Illuminate\Database\QueryException 
+
+  SQLSTATE[42S22]: Column not found: 1054 Unknown column 'status' in 'field list' (SQL: insert into `site_sections` (`site_name_ar`, `site_name_en`, 
+`image`, `status`, `updated_at`, `created_at`) values (ايرادكو الزراعية, ايرادكو الزراعية, , 1, 2021-12-29 09:36:04, 2021-12-29 09:36:04))
+
+  at C:\wamp64\www\eradco\vendor\laravel\framework\src\Illuminate\Database\Connection.php:703
+    699▕         // If an exception occurs when attempting to run a query, we'll format the error
+    700▕         // message to include the bindings with SQL, which will make this exception a
+    701▕         // lot more helpful to the developer instead of just the database's errors.
+    702▕         catch (Exception $e) {
+  ➜ 703▕             throw new QueryException(
+    704▕                 $query, $this->prepareBindings($bindings), $e
+    706▕         }
+    707▕     }
+
+    https://laravel.com/docs/master/migrations#running-migrations
+
+  1   C:\wamp64\www\eradco\vendor\laravel\framework\src\Illuminate\Database\Connection.php:486
+      PDOException::("SQLSTATE[42S22]: Column not found: 1054 Unknown column 'status' in 'field list'")
+  2   C:\wamp64\www\eradco\vendor\laravel\framework\src\Illuminate\Database\Connection.php:486
+      PDO::prepare("insert into `site_sections` (`site_name_ar`, `site_name_en`, `image`, `status`, `updated_at`, `created_at`) values (?, ?, ?, ?, ?, ?)")
+PS C:\wamp64\www\eradco> php artisan db:seed
+Seeding: Database\Seeders\SectionsSeeder
+Seeded:  Database\Seeders\SectionsSeeder (22.90ms)
+Database seeding completed successfully.
+PS C:\wamp64\www\eradco> git add .
+warning: LF will be replaced by CRLF in database/seeders/DatabaseSeeder.php.
+The file will have its original line endings in your working directory
+The file will have its original line endings in your working directory
+PS C:\wamp64\www\eradco> git status
+Your branch is behind 'origin/magda' by 5 commits, and can be fast-forwarded.
+  (use "git pull" to update your local branch)
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   .env
+        modified:   database/seeders/DatabaseSeeder.php
+        modified:   database/seeders/SectionsSeeder.php
+PS C:\wamp64\www\eradco> git commit -m "section seeder"
+[magda dd3d001] section seeder
+PS C:\wamp64\www\eradco> git push
+To ssh://git/training/eradco/backend.git
+error: failed to push some refs to 'ssh://git/training/eradco/backend.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+PS C:\wamp64\www\eradco> git add .
+warning: LF will be replaced by CRLF in database/seeders/SectionsSeeder.php.
+PS C:\wamp64\www\eradco> git commit -m "section seeder"
+[magda 67f8e5e] section seeder
+ 1 file changed, 1 insertion(+)
+PS C:\wamp64\www\eradco> git push
+To ssh://git/training/eradco/backend.git
+ ! [rejected]        magda -> magda (fetch first)
+error: failed to push some refs to 'ssh://git/training/eradco/backend.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: to the same ref. You may want to first integrate the remote changes
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+PS C:\wamp64\www\eradco> git push origin magda
+ ! [rejected]        magda -> magda (fetch first)
+error: failed to push some refs to 'ssh://git/training/eradco/backend.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+PS C:\wamp64\www\eradco> git remote get-url origin --all
+PS C:\wamp64\www\eradco> git push -u origin main        
+Everything up-to-date
+Branch 'main' set up to track remote branch 'main' from 'origin'.
+PS C:\wamp64\www\eradco> git push
+To ssh://git/training/eradco/backend.git
+ ! [rejected]        magda -> magda (fetch first)
+error: failed to push some refs to 'ssh://git/training/eradco/backend.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+Enumerating objects: 97, done.
+Counting objects: 100% (97/97), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (75/75), done.
+Writing objects: 100% (75/75), 12.06 KiB | 772.00 KiB/s, done.
+Total 75 (delta 46), reused 0 (delta 0), pack-reused 0
+remote:
+remote: To create a merge request for magda, visit:
+remote:
+To ssh://git/training/eradco/backend.git
+ + f1c0376...67f8e5e magda -> magda (forced update)
+PS C:\wamp64\www\eradco> git fetch origin
+remote: Enumerating objects: 51, done.
+remote: Compressing objects: 100% (22/22), done.
+remote: Total 22 (delta 13), reused 1 (delta 0), pack-reused 0
+Unpacking objects: 100% (22/22), 3.06 KiB | 7.00 KiB/s, done.
+From ssh://git/training/eradco/backend
+   67f8e5e..2533e66  magda      -> origin/magda
+   26ce10b..3e9d3bd  yasmeen    -> origin/yasmeen
+PS C:\wamp64\www\eradco> git checkout -b 'yasmeen' 'origin/yasmeen'
+error: Your local changes to the following files would be overwritten by checkout:
+        .gitignore
+Please commit your changes or stash them before you switch branches.
+PS C:\wamp64\www\eradco> git checkout -b 'yasmeen' 'origin/yasmeen' --force^C
+PS C:\wamp64\www\eradco> git commit -m "ignore"
+Your branch is behind 'origin/magda' by 1 commit, and can be fast-forwarded.
+  (use "git pull" to update your local branch)
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   .gitignore
+
+PS C:\wamp64\www\eradco> git commit -am "ignore"
+ 1 file changed, 1 insertion(+)
+PS C:\wamp64\www\eradco> git checkout -b 'yasmeen' 'origin/yasmeen'
+Switched to a new branch 'yasmeen'
+Branch 'yasmeen' set up to track remote branch 'yasmeen' from 'origin'.
+PS C:\wamp64\www\eradco> git fetch origin
+PS C:\wamp64\www\eradco> git checkout 'magda'
+Switched to branch 'magda'
+Your branch and 'origin/magda' have diverged,
+and have 1 and 1 different commits each, respectively.
+  (use "git pull" to merge the remote branch into yours)
+PS C:\wamp64\www\eradco> git merge --no-ff 'yasmeen'
+fatal: refusing to merge unrelated histories
+PS C:\wamp64\www\eradco> git merge --no-ff 'yasmeen' --force
+error: unknown option `force'
+usage: git merge [<options>] [<commit>...]
+   or: git merge --abort
+   or: git merge --continue
+
+    -n                    do not show a diffstat at the end of the merge
+    --stat                show a diffstat at the end of the merge
+    --summary             (synonym to --stat)
+    --log[=<n>]           add (at most <n>) entries from shortlog to merge commit message
+    --squash              create a single commit instead of doing a merge
+    --commit              perform a commit if the merge succeeds (default)
+    -e, --edit            edit message before committing
+    --cleanup <mode>      how to strip spaces and #comments from message
+    --ff                  allow fast-forward (default)
+    --ff-only             abort if fast-forward is not possible
+    --rerere-autoupdate   update the index with reused conflict resolution if possible
+    --verify-signatures   verify that the named commit has a valid GPG signature
+    -s, --strategy <strategy>
+                          merge strategy to use
+    -X, --strategy-option <option=value>
+                          option for selected merge strategy
+    -m, --message <message>
+                          merge commit message (for a non-fast-forward merge)
+    -F, --file <path>     read message from file
+    -v, --verbose         be more verbose
+    -q, --quiet           be more quiet
+    --quit                --abort but leave index and working tree alone
+    --continue            continue the current in-progress merge
+    --allow-unrelated-histories
+                          allow merging unrelated histories
+    --progress            force progress reporting
+    -S, --gpg-sign[=<key-id>]
+                          GPG sign commit
+    --overwrite-ignore    update ignored files (default)
+    --signoff             add a Signed-off-by trailer
+    --no-verify           bypass pre-merge-commit and commit-msg hooks
+
+PS C:\wamp64\www\eradco> git push origin 'magda'
+To ssh://git/training/eradco/backend.git
+ ! [rejected]        magda -> magda (non-fast-forward)
+error: failed to push some refs to 'ssh://git/training/eradco/backend.git'
+hint: Updates were rejected because the tip of your current branch is behind
+hint: its remote counterpart. Integrate the remote changes (e.g.
+hint: 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+PS C:\wamp64\www\eradco> git merge --force --no-ff 'yasmeen'
+error: unknown option `force'
+usage: git merge [<options>] [<commit>...]
+   or: git merge --abort
+   or: git merge --continue
+
+    -n                    do not show a diffstat at the end of the merge
+    --stat                show a diffstat at the end of the merge
+    --summary             (synonym to --stat)
+    --log[=<n>]           add (at most <n>) entries from shortlog to merge commit message
+    --squash              create a single commit instead of doing a merge
+    --commit              perform a commit if the merge succeeds (default)
+    -e, --edit            edit message before committing
+    --cleanup <mode>      how to strip spaces and #comments from message
+    --ff                  allow fast-forward (default)
+    --ff-only             abort if fast-forward is not possible
+    --rerere-autoupdate   update the index with reused conflict resolution if possible
+    --verify-signatures   verify that the named commit has a valid GPG signature
+    -s, --strategy <strategy>
+                          merge strategy to use
+    -X, --strategy-option <option=value>
+                          option for selected merge strategy
+    -m, --message <message>
+                          merge commit message (for a non-fast-forward merge)
+    -F, --file <path>     read message from file
+    -v, --verbose         be more verbose
+    -q, --quiet           be more quiet
+    --quit                --abort but leave index and working tree alone
+    --allow-unrelated-histories
+                          allow merging unrelated histories
+    --progress            force progress reporting
+    -S, --gpg-sign[=<key-id>]
+                          GPG sign commit
+    --autostash           automatically stash/stash pop before and after
+    --overwrite-ignore    update ignored files (default)
+    --signoff             add a Signed-off-by trailer
+    --no-verify           bypass pre-merge-commit and commit-msg hooks
+
+PS C:\wamp64\www\eradco> git merge --no-ff 'yasmeen'
+fatal: refusing to merge unrelated histories
+PS C:\wamp64\www\eradco> git merge --help
+PS C:\wamp64\www\eradco> git merge --no-ff 'yasmeen' --allow-unrelated-histories
+CONFLICT (add/add): Merge conflict in routes/web.php
+Auto-merging routes/web.php
+CONFLICT (add/add): Merge conflict in routes/api.php
+Auto-merging routes/api.php
+CONFLICT (add/add): Merge conflict in resources/views/layouts/master.blade.php        
+Auto-merging resources/views/layouts/master.blade.php
+CONFLICT (add/add): Merge conflict in resources/views/layouts/main-sidebar.blade.php  
+Auto-merging resources/views/layouts/main-sidebar.blade.php
+CONFLICT (add/add): Merge conflict in resources/views/layouts/main-header.blade.php   
+Auto-merging resources/views/layouts/main-header.blade.php
+CONFLICT (add/add): Merge conflict in resources/views/layouts/head.blade.php
+Auto-merging resources/views/layouts/head.blade.php
+CONFLICT (add/add): Merge conflict in resources/views/layouts/footer-scripts.blade.php
+Auto-merging resources/views/layouts/footer-scripts.blade.php
+CONFLICT (add/add): Merge conflict in resources/views/empty.blade.php
+Auto-merging resources/views/empty.blade.php
+CONFLICT (add/add): Merge conflict in resources/views/categories/edit.blade.php
+Auto-merging resources/views/categories/edit.blade.php
+CONFLICT (add/add): Merge conflict in resources/views/categories/category.blade.php
+Auto-merging resources/views/categories/category.blade.php
+CONFLICT (add/add): Merge conflict in resources/views/categories/add.blade.php
+Auto-merging resources/views/categories/add.blade.php
+CONFLICT (add/add): Merge conflict in resources/lang/en/validation.php
+Auto-merging resources/lang/en/validation.php
+CONFLICT (add/add): Merge conflict in public/js/app.js
+Auto-merging public/js/app.js
+CONFLICT (add/add): Merge conflict in public/index.php
+Auto-merging public/index.php
+CONFLICT (add/add): Merge conflict in public/css/wizard.css
+Auto-merging public/css/wizard.css
+CONFLICT (add/add): Merge conflict in database/seeders/DatabaseSeeder.php
+Auto-merging database/seeders/DatabaseSeeder.php
+CONFLICT (add/add): Merge conflict in database/migrations/2021_12_27_111658_create_sitesections_table.php
+Auto-merging database/migrations/2021_12_27_111658_create_sitesections_table.php
+CONFLICT (add/add): Merge conflict in config/filesystems.php
+Auto-merging config/filesystems.php
+CONFLICT (add/add): Merge conflict in config/app.php
+Auto-merging config/app.php
+CONFLICT (add/add): Merge conflict in composer.lock
+Auto-merging composer.lock
+CONFLICT (add/add): Merge conflict in composer.json
+Auto-merging composer.json
+CONFLICT (add/add): Merge conflict in app/Providers/RouteServiceProvider.php
+Auto-merging app/Providers/RouteServiceProvider.php
+CONFLICT (add/add): Merge conflict in app/Providers/AppServiceProvider.php
+Auto-merging app/Providers/AppServiceProvider.php
+CONFLICT (add/add): Merge conflict in app/Models/Sitesection.php
+Auto-merging app/Models/Sitesection.php
+CONFLICT (add/add): Merge conflict in app/Http/Controllers/Category/SubcategoryController1.php
+Auto-merging app/Http/Controllers/Category/SubcategoryController1.php
+CONFLICT (add/add): Merge conflict in .gitignore
+Auto-merging .gitignore
+CONFLICT (add/add): Merge conflict in .env.example
+Auto-merging .env.example
+PS C:\wamp64\www\eradco> git log
+commit c76874cea1e94d33e150d677efff01bb9c8eba5f (HEAD -> magda)
+:...skipping...
+commit c76874cea1e94d33e150d677efff01bb9c8eba5f (HEAD -> magda)
+Author: unknown <magdasaif3@gmail.com>
+Date:   Wed Dec 29 12:24:57 2021 +0200
+
+    ignore
+
+commit 67f8e5e52fe79ff166acb0cea574765855254702
+Author: unknown <magdasaif3@gmail.com>
+Date:   Wed Dec 29 11:39:55 2021 +0200
+
+    section seeder
+
+commit dd3d0017389651381aba49f1ad427f840a41f4c6
+Author: unknown <magdasaif3@gmail.com>
+:...skipping...
+commit c76874cea1e94d33e150d677efff01bb9c8eba5f (HEAD -> magda)
+Author: unknown <magdasaif3@gmail.com>
+Date:   Wed Dec 29 12:24:57 2021 +0200
+commit c76874cea1e94d33e150d677efff01bb9c8eba5f (HEAD -> magda)
+Author: unknown <magdasaif3@gmail.com>
+Date:   Wed Dec 29 12:24:57 2021 +0200
+
+    ignore
+
+commit 67f8e5e52fe79ff166acb0cea574765855254702
+Author: unknown <magdasaif3@gmail.com>
+Date:   Wed Dec 29 11:39:55 2021 +0200
+
+commit c76874cea1e94d33e150d677efff01bb9c8eba5f (HEAD -> magda)
+Author: unknown <magdasaif3@gmail.com>
+Date:   Wed Dec 29 12:24:57 2021 +0200
+
+commit c76874cea1e94d33e150d677efff01bb9c8eba5f (HEAD -> magda)
+Author: unknown <magdasaif3@gmail.com>
+Date:   Wed Dec 29 12:24:57 2021 +0200
+
+    ignore
+
+commit 67f8e5e52fe79ff166acb0cea574765855254702
+Author: unknown <magdasaif3@gmail.com>
+Date:   Wed Dec 29 11:39:55 2021 +0200
+
+
+git remote set-url origin ssh://git/training/eradco/backend
+git remote -v
+git push --set-upstream origin new_templet
+
+
+
+1.	git clone https://github.com/Kingsconsult/laravel_8_crud.git
+2.	cd laravel_8_crud/
+3.	composer install
+4.	npm install
+5.	cp .env.example .env
+6.	php artisan key:generate
+7.	Add your database config in the .env file (you can check my articles on how to achieve that)
+8.	php artisan migrate
+9.	php artisan serve (if the server opens up, http://127.0.0.1:8000, then we are good to go)

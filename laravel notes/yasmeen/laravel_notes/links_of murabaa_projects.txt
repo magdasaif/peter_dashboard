@@ -1,0 +1,17 @@
+https://backend.training.murabba.dev/api/types/ar/1/sub_types
+
+-----------------------------------
+https://backend.eradco.murabba.dev/dashboard/categories
+------------------------------------
+https://backend.eradunited.training.murabba.dev/video
+---------------------------------
+https://git.murabba.com/training/eradco/backend/-/issues
+----------------------------------------
+https://git.murabba.com/training/eradco/dashboard/-/pipelines
+-------------------------------------------
+https://backend.eradco.murabba.dev/api/v1
+https://backend.eradunited.training.murabba.dev/api/v1
+---------------------------------------------
+https://git.murabba.com/training/eradco/dashboard/-/boards
+--------------------------------------------
+https://git.murabba.com/users/sign_in

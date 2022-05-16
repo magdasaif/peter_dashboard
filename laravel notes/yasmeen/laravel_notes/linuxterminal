@@ -1,0 +1,119 @@
+murabba@backend1:/media/murabba/3CA2C8D8A2C897B2/kasrchem$ git clone https://git.murabba.com/MD/dev/eradco/kasrchem/backend
+Cloning into 'backend'...
+Username for 'https://git.murabba.com': git
+Password for 'https://git@git.murabba.com': 
+remote: HTTP Basic: Access denied
+fatal: Authentication failed for 'https://git.murabba.com/MD/dev/eradco/kasrchem/backend.git/'
+murabba@backend1:/media/murabba/3CA2C8D8A2C897B2/kasrchem$ git clone https://git.murabba.com/MD/dev/eradco/kasrchem/backend
+Cloning into 'backend'...
+Username for 'https://git.murabba.com': yasmeen
+Password for 'https://yasmeen@git.murabba.com': 
+murabba@backend1:/media/murabba/3CA2C8D8A2C897B2/kasrchem$ git clone ssh://git/MD/dev/eradco/kasrchem/backend
+Cloning into 'backend'...
+ssh: Could not resolve hostname git: Name or service not known
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+murabba@backend1:/media/murabba/3CA2C8D8A2C897B2/kasrchem$ ssh-keygen 
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/murabba/.ssh/id_rsa): 
+Created directory '/home/murabba/.ssh'.
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in /home/murabba/.ssh/id_rsa
+Your public key has been saved in /home/murabba/.ssh/id_rsa.pub
+The key fingerprint is:
+SHA256:4RHqxZXQeg0LHMrbqlQ11EREnSIjDzBxJeSJGPap4U4 murabba@backend1
+The key's randomart image is:
++---[RSA 3072]----+
+|  o +++o*X*o .   |
+| . + BoB=o* o    |
+|  o + *+B= =     |
+| . o . *o+o .    |
+|  E   + S.       |
+| o   . .         |
+|  . . .          |
+|   . .           |
+|    .            |
++----[SHA256]-----+
+murabba@backend1:/media/murabba/3CA2C8D8A2C897B2/kasrchem$ chm
+chmem  chmod  
+murabba@backend1:/media/murabba/3CA2C8D8A2C897B2/kasrchem$ chm
+chmem  chmod  
+murabba@backend1:/media/murabba/3CA2C8D8A2C897B2/kasrchem$ chmod 600 ~/.ssh/id_rsa
+murabba@backend1:/media/murabba/3CA2C8D8A2C897B2/kasrchem$ git clone ssh://git/MD/dev/eradco/kasrchem/backend
+Cloning into 'backend'...
+ssh: Could not resolve hostname git: Name or service not known
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+murabba@backend1:/media/murabba/3CA2C8D8A2C897B2/kasrchem$ cat ~/.ssh/id_rsa.pub 
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCwXnz7SzYZXpSUJJ0jvt/uAo3tDRsidyQTdw8QANwvrrMrkAFB+UZjAhSUaPlhRhLJ1Xo3+sTUFddwZmBpPS4A18ykc2URoVcqSH6K5UgnJkYK1sOSQLW3ERz+bbLz0e4ds/yjgC7EAW3XWDrdwAXmyAmbZjPPQsah5RX9XUtpzjabLFq6fnmxP/wsHDm/9xEEpVIZFMxaIvvC/QCpJpa0XZHiSYLbsdgUFOPgazjqaJDH5GSZ2wM5L5LivLXQ7rbd5J1pGI1sV639X0ITKezBwlBtSSyS7E3KEc0EKGdRjl2e5xhGRkC/UUYrbTGoeNA70JbfuGqN+4eACYCGhtQUjcySi+wXlbcxS0HujELaEF88pske6Vd39/T/guqliohb5RklQnzjmVSZvUMdmDWS49BFMAy/PYlbXMzpa0znBf27y90D5Y0c7WrRtRbzegbv5EOxHGvLLM4JY9HrCz+MakOEkEIBHidYCJH5NI/RHfrGlCR+gBmCn8cs48JyH58= murabba@backend1
+murabba@backend1:/media/murabba/3CA2C8D8A2C897B2/kasrchem$ git clone ssh://git/MD/dev/eradco/kasrchem/backend
+Cloning into 'backend'...
+ssh: Could not resolve hostname git: Name or service not known
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+murabba@backend1:/media/murabba/3CA2C8D8A2C897B2/kasrchem$ ll
+total 8
+drwxrwxrwx 1 murabba murabba   48 Apr 17 13:36 ./
+drwxrwxrwx 1 murabba murabba 8192 Apr 17 11:48 ../
+murabba@backend1:/media/murabba/3CA2C8D8A2C897B2/kasrchem$ cd ~/.ssh/
+murabba@backend1:~/.ssh$ ll
+total 16
+drwx------  2 murabba murabba 4096 Apr 17 13:34 ./
+drwxr-xr-x 32 murabba murabba 4096 Apr 17 13:34 ../
+-rw-------  1 murabba murabba 2602 Apr 17 13:34 id_rsa
+-rw-r--r--  1 murabba murabba  570 Apr 17 13:34 id_rsa.pub
+murabba@backend1:~/.ssh$ cp '/media/murabba/3CA2C8D8A2C897B2/Users/Square.DEV/.ssh/config' ~/.ssh/
+murabba@backend1:~/.ssh$ ll
+total 20
+drwx------  2 murabba murabba 4096 Apr 17 13:38 ./
+drwxr-xr-x 32 murabba murabba 4096 Apr 17 13:34 ../
+-rwxrwxr-x  1 murabba murabba  164 Apr 17 13:38 config*
+-rw-------  1 murabba murabba 2602 Apr 17 13:34 id_rsa
+-rw-r--r--  1 murabba murabba  570 Apr 17 13:34 id_rsa.pub
+murabba@backend1:~/.ssh$ cp '/media/murabba/n
+> ^C
+murabba@backend1:~/.ssh$ cp /media/murabba/New\ Volume/projects/kasrchem/
+cp: missing destination file operand after '/media/murabba/New Volume/projects/kasrchem/'
+Try 'cp --help' for more information.
+murabba@backend1:~/.ssh$ cd /media/murabba/New\ Volume/projects/kasrchem/
+murabba@backend1:/media/murabba/New Volume/projects/kasrchem$ git clone ssh://git/MD/dev/eradco/kasrchem/backend
+Cloning into 'backend'...
+The authenticity of host '[git.murabba.com]:1157 ([66.7.221.182]:1157)' can't be established.
+ECDSA key fingerprint is SHA256:a3VpRHt7/O2m2moO+BaSWYUiTEkV30Wp+9jUM0ehsrY.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added '[git.murabba.com]:1157,[66.7.221.182]:1157' (ECDSA) to the list of known hosts.
+remote: Enumerating objects: 10959, done.
+remote: Counting objects: 100% (481/481), done.
+remote: Compressing objects: 100% (438/438), done.
+remote: Total 10959 (delta 346), reused 59 (delta 35), pack-reused 10478
+Receiving objects: 100% (10959/10959), 35.89 MiB | 654.00 KiB/s, done.
+Resolving deltas: 100% (7571/7571), done.
+murabba@backend1:/media/murabba/New Volume/projects/kasrchem$ 
+
+---------------------------------------------------------
+cd sites
+murabba@backend1:~/sites$ ll
+total 20
+drwxrwxrwx 1 root root 4096 Apr 17 21:50 ./
+drwxrwxrwx 1 root root 4096 Apr 17 13:39 ../
+drwxrwxrwx 1 root root 4096 Apr 13 02:38 blog/
+drwxrwxrwx 1 root root    0 Apr 17 13:42 kasrchem/
+drwxrwxrwx 1 root root    0 Apr 17 14:08 notes/
+drwxrwxrwx 1 root root 8192 Apr 17 23:21 phpmyadmin/
+murabba@backend1:~/sites$ val
+valet        validlocale  
+murabba@backend1:~/sites$ valet links
++------------+-----+-------------------------+------------------------------------------+
+| Site       | SSL | URL                     | Path                                     |
++------------+-----+-------------------------+------------------------------------------+
+| backend    |  X  | https://backend.test    | /mnt/NewVolume/projects/kasrchem/backend |
+| phpmyadmin |  X  | https://phpmyadmin.test | /mnt/NewVolume/projects/phpmyadmin       |
++------------+-----+-------------------------+------------------------------------------+
+

@@ -1,0 +1,209 @@
+composer create-project --prefer-dist laravel/laravel new
+ Õ„Ì· ‰”Œ… ·«—›Ì· ⁄‰ ÿ—Ìﬁ «·ﬂ„»Ê“—
+---------------------------------------------------
+php artisan  serve
+ ‘€Ì· ”Ì—›— ·«—›Ì·
+---------------------------------------------------
+php artisan make:controller ContactController
+
+«‰‘«¡ ﬂ‰ —Ê·
+---------------------------------------------------
+php artisan make:controller Backend\DashboardController --resource
+php artisan make:controller Auth\DoctorController 
+
+make:request
+
+composer create-project laravel/laravel laravel8
+
+php artisan make:notification add_invoice
+php artisan make:notification InvoicePaid
+
+composer require consoletvs/charts:5.*
+
+php artisan make:notification StatusChange
+
+
+«‰‘«¡ ﬂ‰ —Ê· —Ì”Ê—”
+Route::resource('photos', 'PhotoController');
+---------------------------------------------------
+php artisan make:model Employee
+«‰‘«¡ ﬂ‰ —Ê·«— „Ã„⁄ 
+---------------------------------------------------
+
+Route::get('name','controller@fun');
+⁄„· —Ê  ⁄·Ì ’›Õ…
+---------------------------------------------------
+public function  home(){
+return view(page name,compact('var name'));
+}
+«‰‘«¡ ›‰ﬂ‘‰
+----------------------------------------------------
+public function __invoke($id){
+return view(page name,compact('var name'));}
+ «‰‘«¡ ›‰ﬂ‘‰ ÊÕÌœ
+----------------------------------------------------
+@extends('pages.master')
+«” œ⁄«¡ ’›Õ… «·„«” —
+----------------------------------------------------
+@yield("name")
+ ”„Ì… «·Õﬁ· «·„—«œ «· ⁄œÌ· ›Ì… ›Ï ﬂ· ’›Õ… ÃœÌœ
+----------------------------------------------------
+@section('content')@stop
+«” œ⁄«¡ «”„… «·Õﬁ· «·„—«œ «· ⁄œÌ· ⁄·Ì…
+----------------------------------------------------
+{{csrf_field()}}
+ﬂÊœ Õ„«Ì… «·›Ê—„
+----------------------------------------------------
+php artisan make:migration create_Religions_table --create=Religions
+ﬂÊœ «‰‘«¡ ÃœÊ· ›Ï ﬁ«⁄œ… «·»Ì«‰« 
+-----------------------------------------------------
+php artisan make:model Models/Invoice -m
+
+
+ﬂÊœ «‰‘«¡ «·„œÌÊ· «·Œ«’ »«·ÃœÊ·
+------------------------------------------------------
+php artisan make:migration add_votes_to_categories_table --table=categories
+ﬂÊœ «÷«›… Õﬁ· »⁄œ «‰‘«¡ «·ÃœÊ·
+------------------------------------------------------
+ﬂÊœ „”Õ ﬂ· «·Ãœ«Ê· „‰ ﬁ«⁄œ… «·»Ì«‰« 
+php artisan migrate:fresh
+-----------------------------------------------------
+
+npm install --save-dev laravel-echo pusher-js
+
+'Phone_lawyer_name'
+php artisan migrate
+php artisan make:livewire Departments
+php artisan db:seed --class=UserTableSeeder
+php artisan make:seeder NationalitiesTableSeeder
+
+Route::get('admin', [AdminController::class, 'xx']);
+
+\App\Models\User::all()
+
+
+Aa123123@
+
+ﬂÊœ «· «ﬂÌœ ⁄·Ì «‰‘«¡ «·ÃœÊ·
+------------------------------------------------------
+php artisan migrate:rollback
+ﬂÊœ Õ–› «Œ— ÃœÊ·  „ «‰‘«¡Â
+------------------------------------------------------
+php artisan make:seeder GenderTableSeeder
+
+php artisan db:seed --class=AdminsTableSeeder
+php artisan db:seed --class=CreateAdminUserSeeder
+
+public function(Request $request){
+
+}
+›‰ﬂ‘‰ ﬂÊœ «·Õ›Ÿ
+------------------------------------------------------
+$var  =new model;
+»œ«Ì… ﬂÊœ «·Õ›Ÿ  ⁄—Ì› «”„… «·„œÌÊ· 
+------------------------------------------------------
+var->fieldname=$request->input name
+ÿ—Ìﬁ… ﬂ «»… «·„ €Ì—«  ›Ï ﬂÊœ «·Õ›Ÿ
+------------------------------------------------------
+return redirect('show');
+«·⁄Êœ „»«‘—… «·Ì «·’›Õ… «·„ÿ·Ê»…
+------------------------------------------------------
+checkbox
+var->fieldname=implode("-",$request->input name);
+ÿ—Ìﬁ… Õ›Ÿ  ‘Ìﬂ »Êﬂ”
+------------------------------------------------------
+file
+$var=$request->file('input')
+$var2=$var->getClientOriginalName();
+ÿ—Ìﬁ…  ⁄—Ì› «·’Ê—…
+-------------------------------------------------------
+$varpic->move('folder','var2')
+ÿ—Ìﬁ… ‰ﬁ· «·’Ê—…
+-------------------------------------------------------
+$varmodel->save();
+ﬂÊœ Õ›Ÿ «·»Ì«‰« 
+-------------------------------------------------------
+use Illuminate\Support\Facades\DB;
+›Ï Õ«·… «·⁄—÷ ﬂ «»… «·ﬂÊœ «⁄·Ì «·ﬂ‰ —Ê·—
+-------------------------------------------------------
+$varname=DB::table('table name')->get();
+Ã„·… select
+-------------------------------------------------------
+return view('page',compact('varname'));
+«·⁄Êœ… »‘«‘… «·⁄—÷ „⁄ «·„ €Ì—
+-------------------------------------------------------
+@foreach($var name as $var)
+{{$var->field name}}
+@endforeach
+Ã„·… «·›Ê— « ‘
+-------------------------------------------------------
+validation
+·Ì‰ﬂ «· Õﬁﬁ ›Ï ·«—›Ì·
+https://laravel.com/docs/5.8/validation#available-validation-rules
+-------------------------------------------------------
+<a href="{{$row->id}}/delete">delet</a> ﬂÊœ “— «·Õ–›
+Route::get('{id}/delete','con1@delete'); —Ê  «·Õ–›
+function delete(model $adid){$adid->delete();}
+--------------------------------------------------------
+<a href="{{id}}/edit">edit</a> ﬂÊœ “— «· ⁄œÌ·
+Route::get('{adid}/edit','con1@edut'); —Ê  «· ⁄œÌ·
+function edit(model $adid){return view('update',compact('adid'));}
+---------------------------------------------------------
+form  action =update  ’›Õ… ⁄—÷ «·»Ì«‰«  ·· ⁄œÌ·
+{{csrf_field()}}
+Route::post('{adid}/update','con1@update'); —Ê  «· ⁄œÌ·
+function update(model $adid,Request $request){
+
+$adid>update($request->all()); «·ÿ—Ìﬁ… «·«Ê·Ì  ⁄œÌ· «·ﬂ·
+
+DB::table('table name')->where('id',$adid->id)
+->update(['field name'=>$request->input name]) «·ÿ—Ìﬁ… «·À«‰Ì
+
+}
+---------------------------------------------------------
+protected $fillable = [
+        'username', 'email', 'password',
+    ];
+ﬂÊœ ”„«Õ «· ⁄œÌ· œ«Œ· «·„œÌÊ·
+
+protected $table="nametable";
+ﬂÊœ —»ÿ «·ÃœÊ· »«·„ÊœÌ·
+
+----------------------------------------------------------
+php artisan make:auth
+ﬂÊœ «‰‘«¡ ‰Ÿ«„ «·œŒÊ·
+----------------------------------------------------------
+$request->session()->put(['name'=>'html-php']);
+             
+session()->put(['names'=>['ahmed','20','html']])  ; 
+ﬂÊœ › Õ «·”Ì‘‰
+----------------------------------------------------------
+session()->get('');
+⁄—÷ «·”Ì‘‰
+-----------------------------------------------------------
+ session()->forget('key');
+ session()->flush();
+€·ﬁ «·”Ì‘‰
+-----------------------------------------------------------
+artisan make:middleware name
+ﬂÊœ «‰‘«¡ „Ìœ·ÊÌ—
+-----------------------------------------------------------
+
+-----------------------------------------------------------
+@auth
+@endauth
+ﬂÊœ «· «ﬂœ „‰ ⁄„·Ì…  ”ÃÌ· «·œŒÊ· 
+-----------------------------------------------------------
+            
+-----------------------------------------------------------
+@guest
+@endguest
+ﬂÊœ «·œŒÊ· “«∆—
+-----------------------------------------------------------
+use Illuminate\Support\Facades\Schema;
+Schema::defaultStringLength(191);
+
+ﬂÊœ «·ﬂ «»… UTF8
+
+-----------------------------------------------------------
+

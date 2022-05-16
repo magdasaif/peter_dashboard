@@ -1,0 +1,83 @@
+//------------------------handel mail-------------------------
+//create a new email class-----------------
+php artisan help make:mail
+
+//-m for markdown
+//ده الوسيط اللى ممكن استخدمه علشان اتنقل من الكنترولر للفيو وهستخدمه كمان لو عايزه الميل بتاعى يتبعت بعد وقت معين 
+php artisan make:mail ConatctEmail -m emails.welcome
+
+//هعمل صفحه فيو فيها شكل الميل اللى هيتبعت وتستقبل الداتا من الكنترولر                  
+
+// هستدعى كلاس الميل فى الكنترولر
+use Illuminate\Support\Facades\Mail;
+use App\Mail\ConatctEmail;
+
+
+//هكتب فنكشن الميل فى الكنترولر
+
+//laravel send mail
+//هستخدم سيند هنا لو هتعامل مع ملفConatctEmail 
+Mail::To($to_email) ->send(new ConatctEmail($data));
+
+//وفى ملف  ConatctEmail هكتب 
+<?php
+
+namespace App\Mail;
+
+use Illuminate\Bus\Queueable;
+use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Mail\Mailable;
+use Illuminate\Queue\SerializesModels;
+
+class ConatctEmail extends Mailable
+{
+    use Queueable, SerializesModels;
+
+     public $dd;
+    public $maill;
+    public function __construct($data)
+    {
+        $this->dd=$data;
+        $this->maill=$data['mail'];
+
+    }
+
+  
+    public function build()
+    {
+        return $this->from($this->maill)
+                    ->view('emails.contact');
+    }
+}
+
+
+
+// or this ------------to handel subject &reply
+Mail::send(
+                'emails.contact',
+                array(
+                    'title' => 'Contact Mail -- تواصل معنا ',
+                    'name' => $request->get('name'),
+                    'mail' => $request->get('email'),
+                    'phone' => $request->get('phone'),
+                    'content' => $request->get('message'),
+                ),
+                function ($message) use ($request) {
+                    $message->subject("Contact Mail -- تواصل معنا ");
+                    $message->to($site_email);
+                   // $message->to('eradunited@murabba.dev');
+                    $message->from($request->email);
+
+                }
+            );
+
+//in .env add mail driver--------------------
+MAIL_DRIVER=smtp
+MAIL_HOST=mail.murabba.dev
+MAIL_PORT=465
+MAIL_USERNAME=eradunited@murabba.dev
+MAIL_PASSWORD='yg)5tUUj#*qy'
+MAIL_ENCRYPTION=ssl
+MAIL_FROM_NAME="Eracdco"
+
+//=========================================================

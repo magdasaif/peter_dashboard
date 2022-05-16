@@ -1,0 +1,16 @@
+﻿*********فيديو بالعربى******************
+https://www.youtube.com/watch?v=QonyaNVeEGo&ab_channel=SemiColonAcademy
+
+
+-----------------------
+https://www.howtographql.com/
+
+
+http://localhost:8000/graphql-playground
+https://lighthouse-php.com/5/security/authentication.html#stateful-authentication-example
+
+https://laravel.com/docs/9.x/sanctum#spa-authenticating
+https://github.com/bitfumes/laravel-graphql
+https://bestofphp.com/repo/daniel-de-wit-lighthouse-sanctum-php-laravel-utilities
+
+https://bestofphp.com/repo/daniel-de-wit-lighthouse-sanctum-php-laravel-utilities --->importANT

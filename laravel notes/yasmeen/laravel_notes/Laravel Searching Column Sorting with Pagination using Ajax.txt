@@ -1,0 +1,1 @@
+https://www.webslesson.info/2018/11/laravel-column-sorting-with-pagination-using-ajax.html

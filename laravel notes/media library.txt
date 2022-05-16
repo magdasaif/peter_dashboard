@@ -1,0 +1,157 @@
+Media Library package
+
+//----------------------------
+composer require "spatie/laravel-medialibrary"
+php artisan vendor:publish --provider="Spatie\MediaLibrary\MediaLibraryServiceProvider" --tag="migrations"
+
+
+composer require spatie/laravel-image-optimizer
+php artisan vendor:publish --provider="Spatie\LaravelImageOptimizer\ImageOptimizerServiceProvider"
+
+//----------------------------------------------------------------------------
+//----------------------- optimzation uploaded images ------------------------
+//----------------------------------------------------------------------------
+https://5balloons.info/image-upload-resize-retrieve-laravel-medialibrary-spatie-package/
+
+0- install medialibrary package to handel optimzation
+
+	composer require "spatie/laravel-medialibrary"
+	php artisan vendor:publish --provider="Spatie\MediaLibrary\MediaLibraryServiceProvider" --tag="migrations"
+	php artisan migrate
+	php artisan vendor:publish --provider="Spatie\MediaLibrary\MediaLibraryServiceProvider" --tag="config"
+
+****************************************************************************
+1- in model that we need to use optimzation add 
+
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
+
+class YourModel extends Model implements HasMedia
+{
+    use InteractsWithMedia;
+}
+
+
+
+****************************************************************************
+2- add disk for media in filesystem if you need to change default disk for it 
+
+ 	'media' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/media'),
+            'url' => env('APP_URL').':8000/storage/media',
+            'visibility' => 'public',
+        ],
+
+//this line 'url' => env('APP_URL').':8000/storage/media', to handel show /display of image
+
+****************************************************************************
+3- and in media-library file in config change disk path 
+	// 'disk_name' => env('MEDIA_DISK', 'public'),
+    	'disk_name' => 'media',
+
+****************************************************************************
+4- to make optimzation write in insert function (Ex,)
+
+	//optimize image
+        $product->addMedia($request->image)->toMediaCollection('product');
+
+//'product' is collection name that we wil use it to retreive image
+
+****************************************************************************
+5- add type of uploaded image you need  and custmize its size in Model
+ 
+	use Spatie\MediaLibrary\InteractsWithMedia;
+
+
+    public function registerMediaConversions(Media $media = null): void
+    {
+        $this->addMediaConversion('thumb')
+              ->width(200)
+              ->height(120);
+
+        $this->addMediaConversion('logo')
+              ->width(90)
+              ->height(90);
+    }
+****************************************************************************
+6- to retreive image  you can do...
+
+	1- in blade 
+		//this will retrevie only first image for product collection.(origin)
+		<img src="{{$product->getFirstMediaUrl('product')}}"> 
+
+		//if you need to display one of uploaded conversion image ,just type conversion name 
+		<img src="{{$product->getFirstMediaUrl('product','thumb')}}"> 
+
+	or you can do ....	
+	2- in controller
+		//this will retrevie all images for collection 'sub_product'
+		$data['Product_images']= Product::find($real_id)->getMedia('sub_product');
+	
+	  - in blade
+
+ 		@foreach($Product_images as $image)
+			//thumb is conversions name 
+                    <img  src="{{$image->getUrl('thumb')}}">
+                @endforeach
+
+****************************************************************************
+7- if you need to regenerate your images via an artisan command after adding new conversion or removing one 
+	
+	https://spatie.be/docs/laravel-medialibrary/v9/converting-images/regenerating-images
+
+	php artisan media-library:regenerate
+
+	//If you only want to regenerate the images for a single model
+	php artisan media-library:regenerate "App\Models\Product"
+
+	//If you only want to regenerate images for a few specific media items, you can pass their IDs using the --ids option
+	php artisan media-library:regenerate --ids=1,2,3
+
+	//If you only want to regenerate images for one or many specific conversions, you can use the --only option
+	php artisan media-library:regenerate --only=thumb --only=foo
+
+##############################################################################################################
+8- to delete media
+
+	//to get media_id
+ 	<?php
+           $url=$article->getFirstMediaUrl('article','edit');// http://localhost:8000/storage/media/62/conversions/download_(2)-edit.jpg
+           $get_media_folder= explode('media/',$url);//[0=>'http://localhost:8000/storage/',1=>'62/conversions/download_(2)-edit.jpg']
+           //$get_media_folder[1] ==> 62/conversions/download_(2)-edit.jpg
+           $folder_name= explode('/',$get_media_folder[1]);//[0=>'62',1=>'conversions/download_(2)-edit.jpg']
+            $media_id= $folder_name[0]; // 62 ==> id that we can delete it
+          ?>
+
+	//remove  folder from disk //remove old media
+	// this will remove folder from disk also 
+         Media::find($request->media_id)->delete(); 
+	
+	//no need to rmdir(storage_path().'/app/public/media/'.$request->media_id);  
+##############################################################################################################
+9- to convert image to webp 
+
+ public function registerMediaConversions(Media $media = null): void
+ {
+     //---------sitesection method looks like with 3 size conversions-----------
+     $this->addMediaConversion('index')
+           ->format('webp')
+           ->width(90)
+           ->height(90);
+
+           $this->addMediaConversion('edit')
+           ->format('webp')
+           ->width(300)
+           ->height(200);
+     //-------------------------------------------------------------
+ }
+
+  
+  
+  
+   

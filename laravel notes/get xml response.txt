@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+    <body>
+        <center> <h2> search hotels</h2>
+        <textarea id="response" class="form-control" rows="22" style="width: 50%;" >
+
+        </textarea></center>
+        <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script type="text/javascript" src="xml2json.js"></script>
+
+        <script>  
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/xml");
+        var x2js = new X2JS();
+        var raw = "<customer>\n    <username>Amnahvisitor1</username>\n    <password>7ea4255960e43cb18bbcd5eb94b72318</password>\n    <id>1789605</id>\n      <source>1</source>\n    <product>hotel</product>\n        <language>en</language>\n    <request command=\"searchhotels\">\n        <bookingDetails>\n            <fromDate>1643806863</fromDate>\n            <toDate>1643806938</toDate>\n            <currency>1</currency>\n            <rooms no=\"1\">\n                <room runno=\"0\">\n                    <adultsCode>1</adultsCode>\n                    <children no=\"0\"></children>\n                    <rateBasis>-1</rateBasis>\n                </room>\n            </rooms>\n        </bookingDetails>\n        <return>\n            <filters xmlns:a=\"http://us.dotwconnect.com/xsd/atomicCondition/\" xmlns:c=\"http://us.dotwconnect.com/xsd/complexCondition\">\n                <city>364</city>\n                <noPrice>true</noPrice>\n            </filters>\n            <fields>\n                <field>noOfRooms</field>\n                <field>hotelName</field>\n                <field>cityName</field>\n                <field>cityCode</field>\n                <field>countryName</field>\n            </fields>\n        </return>\n    </request>\n</customer>";
+
+        var requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: raw,
+        redirect: 'follow'
+        };
+
+      //console.log(result) --->this for displaying xml
+      //x2js.xml_str2json(result)  --->this for converting xml to json using x2js package
+        //JSON.stringify()  --> this for displau json
+
+        fetch("https://xmldev.dotwconnect.com/gatewayV4.dotw", requestOptions)
+        .then(response => response.text())
+        .then(
+            result =>document.getElementById("response").innerHTML=JSON.stringify(x2js.xml_str2json(result),null,2),
+            result => console.log(JSON.stringify(x2js.xml_str2json(result),null,2))
+           
+          )
+        .catch(error => console.log('error', error));
+     
+
+        </script>
+
+    </body>
+</html>
+
+//-------------------------------------------------------------------------------------------------
+
+
+
+ <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script type="text/javascript" src="xml2json.js"></script>
+
+        <script>
+      
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/xml");
+        var x2js = new X2JS();
+       
+
+//------------------------------------------------this is xml request --------------------------------------------
+
+        //get all hotels
+
+        // var raw = "<customer>\n    <username>Amnahvisitor1</username>\n    <password>7ea4255960e43cb18bbcd5eb94b72318</password>\n    <id>1789605</id>\n      <source>1</source>\n    <product>hotel</product>\n        <language>en</language>\n    <request command=\"searchhotels\">\n        <bookingDetails>\n            <fromDate>1643806863</fromDate>\n            <toDate>1643806938</toDate>\n            <currency>1</currency>\n            <rooms no=\"1\">\n                <room runno=\"0\">\n                    <adultsCode>1</adultsCode>\n                    <children no=\"0\"></children>\n                    <rateBasis>-1</rateBasis>\n                </room>\n            </rooms>\n        </bookingDetails>\n        <return>\n            <filters xmlns:a=\"http://us.dotwconnect.com/xsd/atomicCondition/\" xmlns:c=\"http://us.dotwconnect.com/xsd/complexCondition\">\n                <city>364</city>\n                <noPrice>true</noPrice>\n            </filters>\n            <fields>\n                <field>noOfRooms</field>\n                <field>hotelName</field>\n                <field>cityName</field>\n                <field>cityCode</field>\n                <field>countryName</field>\n            </fields>\n        </return>\n    </request>\n</customer>";
+
+        //getallcities
+        var raw = "<customer>\n    <username>Amnahvisitor1</username>\n    <password>7ea4255960e43cb18bbcd5eb94b72318</password>\n    <id>1789605</id>\n      <source>1</source>\n        <request command=\"getallcities\">  \n        <return>  \n            <filters>  \n                <countryCode></countryCode>  \n                <countryName></countryName>  \n            </filters>  \n            <fields>  \n                <field>countryName</field>  \n                <field>countryCode</field>  \n            </fields>  \n        </return>  \n    </request> \n    </customer>";
+       
+
+        var requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: raw,
+        redirect: 'follow'
+        };
+
+        //console.log(result) --->this for displaying xml
+        //x2js.xml_str2json(result)  --->this for converting xml to json using x2js package
+        //JSON.stringify()  --> this for display json
+
+
+        fetch("https://xmldev.dotwconnect.com/gatewayV4.dotw", requestOptions)
+        .then(response => response.text())
+       // .then(result => console.log(result))
+        // .then(result => console.log(JSON.stringify(x2js.xml_str2json(result),null,2)))
+
+       .then(result => {
+            alert('ffff');
+           document.getElementById('response').innerHTML=JSON.stringify(x2js.xml_str2json(result),null,2);
+           console.log(JSON.stringify(x2js.xml_str2json(result),null,2));
+            
+            // let dataUri = 'data:application/json;charset=utf-8,'+ encodeURIComponent(JSON.stringify(x2js.xml_str2json(result),null,2));
+            // let exportFileDefaultName = 'result.json';
+            // let linkElement = document.createElement('a');
+            // linkElement.setAttribute('href', dataUri);
+            // linkElement.setAttribute('download', exportFileDefaultName);
+            // linkElement.click();
+
+        //     fwrite(fopen('result.json','w'),JSON.stringify(x2js.xml_str2json(result),null,2));
+        //    fclose('result.json');
+
+        })
+
+      //  .then(result => console.log(JSON.stringify(x2js.xml_str2json(result),null,2)))
+       // .then(result =>fwrite(fopen('result.json','w'), console.log(JSON.stringify(x2js.xml_str2json(result),null,2))) )
+        .catch(error => console.log('error', error));
+
+
+
+
+        // let response = await fetch("https://xmldev.dotwconnect.com/gatewayV4.dotw", requestOptions);
+        // if (response.ok) { // if HTTP-status is 200-299
+        // // get the response body (the method explained below)
+        // let json = await response.json();
+        // } else {
+        // alert("HTTP-Error: " + response.status);
+        // }
+
+
+        </script>

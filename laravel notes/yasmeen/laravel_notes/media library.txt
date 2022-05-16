@@ -1,0 +1,8 @@
+https://5balloons.info/image-upload-resize-retrieve-laravel-medialibrary-spatie-package/
+-----------------------------------------functions for retrieve image--------------------------------------------------------------
+https://spatie.be/docs/laravel-medialibrary/v7/basic-usage/retrieving-media
+
+________________________________________read main_iamge______________________________
+   <td> {{$i}} <img src="{{$release->getFirstMediaUrl('releases','logo')}}" /></td>
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------

@@ -1,0 +1,198 @@
+<!-- 
+التطبيق
+------
+
+
+https://www.figma.com/proto/DGTRLt807YhqQpdFgWCeZa/visitors-tour-app?page-id=0
+الويب
+----
+https://www.figma.com/proto/CIhndAo1zJdUSCFUf5bFqZ/visitors-tour?page-id=0
+Service Provider:
+-----------------
+http://xmldev.dotwconnect.com/interface/en/documentation
+Login ID: Amnahvisitor1
+Password: vIE10$bA
+Company ID: 1789605
+ -->
+
+
+
+
+
+
+
+.....................................................
+<!-- https://visitors-tour.com/en/dashboard
+user: amnah@blackdiamond-ksa.com
+pass: 25092014 -->
+......................................................
+
+
+...............................link of documentation..................................
+<!-- https://xmldev.dotwconnect.com/interface/en/documentation -->
+------------------------------------------------------------------------------
+
+
+............................ request from documentation / searchhotels....................................
+
+<!-- <customer>
+    <username>Amnahvisitor1</username>
+    <password>7ea4255960e43cb18bbcd5eb94b72318</password>
+    <id>1789605</id>
+      <source>1</source>
+    <product>hotel</product>
+        <language>en</language>
+    <request command="searchhotels">
+        <bookingDetails>
+            <fromDate>1643806863</fromDate>
+            <toDate>1643806938</toDate>
+            <currency>1</currency>
+            <rooms no="1">
+                <room runno="0">
+                    <adultsCode>1</adultsCode>
+                    <children no="0"></children>
+                    <rateBasis>-1</rateBasis>
+                </room>
+            </rooms>
+        </bookingDetails>
+        <return>
+            <filters xmlns:a="http://us.dotwconnect.com/xsd/atomicCondition/" xmlns:c="http://us.dotwconnect.com/xsd/complexCondition">
+                <city>364</city>
+                <noPrice>true</noPrice>
+            </filters>
+            <fields>
+                <field>noOfRooms</field>
+                <field>hotelName</field>
+                <field>cityName</field>
+                <field>cityCode</field>
+                <field>countryName</field>
+            </fields>
+        </return>
+    </request>
+</customer>
+
+
+
+............................ request from documentation / searchhotels....................................
+<customer>
+    <username>Amnahvisitor1</username>
+    <password>7ea4255960e43cb18bbcd5eb94b72318</password>
+    <id>1789605</id>
+      <source>1</source>
+    <product>hotel</product>
+    <request command="searchhotels">
+        <bookingDetails>
+            <fromDate>1643806863</fromDate>
+            <toDate>1643806938</toDate>
+            <currency>1</currency>
+            <rooms no="1">
+                <room runno="0">
+                    <adultsCode>1</adultsCode>
+                    <children no="0"></children>
+                    <rateBasis>-1</rateBasis>
+                </room>
+            </rooms>
+        </bookingDetails>
+        <return>
+            <filters xmlns:a="http://us.dotwconnect.com/xsd/atomicCondition/" xmlns:c="http://us.dotwconnect.com/xsd/complexCondition">
+                <city>364</city>
+                <noPrice>true</noPrice>
+            </filters>
+            <fields>
+                <field>preferred</field>
+                <field>builtYear</field>
+                <field>renovationYear</field>
+                <field>floors</field>
+                <field>noOfRooms</field>
+                <field>preferred</field>
+                <field>luxury</field>
+                <field>fullAddress</field>
+                <field>description1</field>
+                <field>description2</field>
+                <field>hotelName</field>
+                <field>address</field>
+                <field>zipCode</field>
+                <field>location</field>
+                <field>locationId</field>
+                <field>location1</field>
+                <field>location2</field>
+                <field>location3</field>
+                <field>cityName</field>
+                <field>cityCode</field>
+                <field>stateName</field>
+                <field>stateCode</field>
+                <field>countryName</field>
+                <field>countryCode</field>
+                <field>regionName</field>
+                <field>regionCode</field>
+                <field>attraction</field>
+                <field>amenitie</field>
+                <field>leisure</field>
+                <field>business</field>
+                <field>transportation</field>
+                <field>hotelPhone</field>
+                <field>hotelCheckIn</field>
+                <field>hotelCheckOut</field>
+                <field>minAge</field>
+                <field>rating</field>
+                <field>images</field>
+                <field>fireSafety</field>
+                <field>hotelPreference</field>
+                <field>direct</field>
+                <field>geoPoint</field>
+                <field>leftToSell</field>
+                <field>chain</field>
+                <field>lastUpdated</field>
+                <field>priority</field>
+                <roomField>name</roomField>
+                <roomField>roomInfo</roomField>
+                <roomField>roomAmenities</roomField>
+                <roomField>twin</roomField>
+            </fields>
+        </return>
+    </request>
+</customer> -->
+
+
+
+...............................getsubscribedhotels..................................
+
+<customer>
+    <username>Amnahvisitor1</username>
+    <password>7ea4255960e43cb18bbcd5eb94b72318</password>
+    <id>1789605</id>
+    <source>1</source>
+    <request command="getsubscribedhotels"></request>
+</customer>
+
+
+............................ request from documentation / forcepush....................................
+This method can be used by an XML customer to force the push of rates and availability for a specific period of time. Customers must first subscribe to the push mechanism.
+هنا بيجبر الفروفيدر انه يعمل استرجاع التقييم واﻻتاحه بتاع فندق معين (او مجموعه فنادق ) فى فتره معينه ... بس ﻻزم نكون عاملين اﻻول  subscribe to the push mechanism
+
+<customer>  
+    <username>username</username>  
+    <password>md5(password)</password>  
+    <id>company_code</id>  
+    <source>1</source>  
+    <request command="forcepush">  
+        <fromDate>2015-11-20</fromDate>  
+        <toDate>2015-11-30</toDate>  
+        <hotelIds>  
+            <hotelId>123456</hotelId>  
+        </hotelIds>  
+    </request>  
+</customer> 
+
+
+
+............................ request from documentation / forcepush....................................
+
+
+
+
+
+
+
+
+

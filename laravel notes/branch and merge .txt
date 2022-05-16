@@ -1,0 +1,219 @@
+git init
+
+git remote set-url origin https://github.com/magdasaif/testing.git 
+
+//display all branches
+git branch
+
+//create new branch
+git branch test1
+
+//to go to new branch
+git checkout test1
+
+//هيمسح البرانش بعد ما يتاكد الاول هل فى تعديلات محصلهاش merge
+git branch -d test1
+
+//to force delete branch
+git branch -D test1
+
+//create new branch to switvhed to it 
+git checkout-b test2
+
+//to rename branch 
+git branch -m new_name
+
+//to create new file
+touch index.html
+
+//to show if files pushed or no 
+git status
+
+//prepare to  
+git add index.html
+
+//to commit
+git commit -m "test branch"
+
+
+git checkout test2
+git merge test1
+
+//To push the current branch and set the remote as upstream, use
+git push --set-upstream origin merged_branch
+
+//make pull before push
+git push -u origin dev
+
+//to ignore updating before do commit
+git reset --hard
+
+
+
+//stepssssssss
+
+ELMESTAR@DESKTOP-G9HMQJE MINGW64 /c/wamp64/www/eradco (merged_branch)
+$ git status
+
+ELMESTAR@DESKTOP-G9HMQJE MINGW64 /c/wamp64/www/eradco (merged_branch)
+$ git add .
+
+ELMESTAR@DESKTOP-G9HMQJE MINGW64 /c/wamp64/www/eradco (merged_branch)
+$ git checkout test1
+
+ELMESTAR@DESKTOP-G9HMQJE MINGW64 /c/wamp64/www/eradco (test1)
+$ git commit -m "add new route to test merge"
+
+ELMESTAR@DESKTOP-G9HMQJE MINGW64 /c/wamp64/www/eradco (test1)
+$ git push
+
+ELMESTAR@DESKTOP-G9HMQJE MINGW64 /c/wamp64/www/eradco (test1)
+$ git checkout merged_branch
+
+ELMESTAR@DESKTOP-G9HMQJE MINGW64 /c/wamp64/www/eradco (merged_branch)
+$ git merge test1
+Updating ab052fa..73b4584
+Fast-forward
+ routes/web.php | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+
+git mergetool --tool=diffmerge
+git diff origin/master
+git difftool
+git difftool -t meld
+git mergetool -t diffmerge
+
+
+//-----------------------------------------------------------------
+gitlens
+fastforward
+//-----------------------------------------------------------------
+
+//to deal with dev branch
+git push --set-upstream origin dev
+
+//to show what our setting for merging
+git config pull.rebase
+
+//recover before merging 
+//merge without last committed updated
+//بيعمل دمج حتى لو محفظتش اخر تعديلات ومعملتش commit
+git merge --abort
+
+//بيرجع عن الدمج اللى حصل 
+git reset --hard HEAD
+
+//يتجاهل الخيار الأول المسافة البيضاء تمامًا عند مقارنة السطور
+$ git merge -Xignore-all-space magda
+
+//الثاني يتعامل مع تسلسل واحد أو أكثر من أحرف المسافات البيضاء على أنه مكافئ.
+$ git merge -Xignore-space-change magda
+
+//allow fast forward
+git pull --ff
+
+
+//الحصول على هذه الإصدارات الثلاثة من الملفات هو في الواقع سهل للغاية. يخزن Git كل هذه الإصدارات في الفهرس ، ولكل منها رقم مرتبط بها ضمن "مراحل". المرحلة 1 هي نسخة أسلافهم المشتركة ، والمرحلة 2 هي نسختك ، والمرحلة 3 تأتي منMERGE_HEAD، وهو الإصدار ("إصدارهم") الذي ستندمج فيه.
+//You can extract a copy of each of these versions of the conflicted file with the git show command and a special syntax.
+$ git show :1:hello.rb > hello.common.rb
+$ git show :2:hello.rb > hello.ours.rb
+$ git show :3:hello.rb > hello.theirs.rb
+
+
+//هيطلعلى الملفات اللى حصل عليها تغيير وهيوضحلى التغير كان فين بالتحديد
+git diff --ours
+
+//هيطلعلى الملفات اللى حصل عليها تغيير وهيوضحلى التغير كان فين بالتحديد فى الملفات اللى اندمجت
+//use -b to remove whitspace
+$ git diff --theirs -b
+$ git diff --base -b
+
+//to clear out the extra files we created to do the manual merge but no longer need.
+git clean
+
+git log --graph --oneline --decorate --all
+
+
+//بعد ما اعمل الدمج وحصل تعارض فى ملفات ... بيظهر علامات فى الملفات دى بحيث اقرر هخلى اى تعديل فيهم
+//لو اتلغبطت فى حاجه  ومحتاجه  ارجع الملف تانى بالعلامات دى تانى 
+//You can pass --conflict either diff3 or merge (which is the default)
+$ git checkout --conflict=diff3 filename
+
+//--conflict=diff3
+هيعرض الملف بشكل مختلف شويه 
+
+def hello
+<<<<<<< ours
+  puts 'hola world'
+||||||| base
+  puts 'hello world'
+=======
+  puts 'hello mundo'
+>>>>>>> theirs
+
+
+//If you like this format, you can set it as the default for future merge conflicts
+$ git config --global merge.conflictstyle diff3
+
+
+//To get a full list of all of the unique commits
+git log --oneline --left-right HEAD...MERGE_HEAD
+or 
+git log --oneline --left-right
+
+
+//use this to display commits related with merge
+$ git log --oneline --left-right --merge
+
+
+//If you run that with the -p option instead, you get just the diffs to the file that ended up in conflict
+//بيظهرلى الاختلافات بس 
+$ git log --oneline --left-right -p
+
+//بيتنفذ بعد التعارض اللى بيحصل بعد الدمج علشان يوضحلى التعارض فين بالضبط
+git diff
+
+
+//هيعرض التعارضات او التعديلات اللى حصلت ولسه  محصلهاش دمج 
+$ git log --cc -p -1
+
+
+ //if you follow the errant git merge with git reset --hard HEAD~, this will reset the branch pointers
+git reset --hard HEAD~
+
+
+//to revert the last commit and do a new commit with revert
+git revert HEAD
+
+//-------------------------------------------------------------------------------
+$ git log --oneline --graph
+
+* b734307 (HEAD -> master) Added a new file named "file1"
+* 90f8bb1 Second commit
+* 7083e29 Initial repository commi
+
+//******************************************************************
+//do revert 
+
+[master 2d40a2c] Revert "Added a new file named file1"
+ 1 file changed, 1 deletion(-)
+ delete mode 100644 file1
+
+//******************************************************************
+
+$ git log --oneline --graph --all
+
+* 2d40a2c (HEAD -> master) Revert "Added a new file named file1"
+* 1fa26e9 Added a new file named file1
+* ee8b133 Second commit
+* a3bdedf Initial commit
+//-------------------------------------------------------------------------------
+
+// هرجع عن التراجع اللى عملته... هلغيه 
+$ git revert ^M
+
+
+
+
+git merge magda -m "any commit"

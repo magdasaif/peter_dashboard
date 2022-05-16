@@ -1,0 +1,525 @@
+php artisan serve
+php artisan list
+
+php artisan make:provider RepositoryServiceProvider
+php artisan make:migration create_sites_datas_table --create=sites_datas
+php artisan migrate
+php artisan route:list
+php artisan make:controller LandsController --resource
+php artisan make:event Name
+php artisan make:listener Name
+php artisan make:model UserType -m
+php artisan mi:f --seed
+php artisan make:resource ProductResource
+
+composer install --ignore-platform-reqs
+composer update --ignore-platform-reqs
+
+
+php artisan make:migration add_keyword_to_department_translations_table --table=department_translations
+
+php artisan stub:publish
+
+
+php artisan make:factory UserTypeFactory --model=UserType
+
+php artisan make:factory UserFactory --model=User
+php artisan tinker
+
+
+php artisan datatables:make User
+
+CreateProductCategoriesTable
+blog_categories
+php artisan make:migration create_blog_tags_table
+
+php artisan make:controller API/RelatedProductController --api
+
+//-a mean all ,create model ,migration ,controller,seeder,factory
+php artisan make:model Contact -a --api
+
+
+composer dump-autoload
+php artisan view:cache
+php artisan config:clear
+php artisan cache:clear
+php artisan route:cache
+php artisan serve
+
+
+php artisan make:request CategoryRequest
+php artisan make:controller Api/SubCategoryController1
+
+php artisan make:seeder SectionsSeeder
+php artisan db:seed --class=DepartmentSeeder
+php artisan storage:link
+php artisan make:request ProductRequest
+php artisan make:livewire productlivewire
+
+php artisan make:command notify
+
+//create a new email class-----------------
+php artisan help make:mail
+
+//-m for markdown
+php artisan make:mail ConatctEmail -m emails.welcome
+
+migrate:fresh
+migrate:install
+migrate:refresh
+migrate:reset
+migrate:rollback
+migrate:status
+
+php artisan db:seed --class=DepartmentSeeder
+
+
+
+php artisan make:interface SomeInterface
+
+
+
+$2y$10$fdlH.OHUh502tLw1PgR/4uqcD3PDk7UVuHUb/ZN3MIdNjX6f1rPHG
+
+php artisan migrate:status
+
+{{method_field('PATCH')}}
+ @csrf
+
+wael201286
+M#2022dev*
+
+
+git remote add origin ssh://git/training/eradco/backend.git
+
+
+//-------------------------------------------------------------
+//------------------handel error message-----------------------
+
+  @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
+ @if(Session::has('error'))
+                <div class="alert alert-danger">
+                    {{Session::get('error')}}
+
+                    @if(Session::has('data'))
+                        <ul>
+                            @foreach (Session::get('data') as $d)
+                                <li>{{ $d }}</li>
+                            @endforeach
+                        </ul>
+                    @endif
+            
+                </div>
+            @endif
+
+
+$check_found_sub=Supplier::where('parent_id',$id)->count();
+             
+             if($check_found_sub>0){
+                $s=Supplier::where('parent_id',$id)->pluck('name_ar');
+                return redirect()->route('supplier.index')->with([
+                    'error'=>'يوجد موردين فرعيين من هذا المورد .. من فضلك قم بنقلهم الى مورد اخر ثم اعد المحاوله ...',
+                    'data'=>$s
+                ]);
+            }else{}
+
+
+catch(\Exception $e){
+   return redirect()->back()->withErrors(['error' => $e->getMessage()]);
+ }
+
+
+//-------------------------------------------------------------
+{{method_field('POST')}}
+
+//-----------------secrit issue after form---------------------
+@csrf
+{{-- <input name="_token" value="{{csrf_token()}}"> --}}
+
+
+//save old value in required input -----------------
+value="<?php if(old('code')){echo old('code');}else{echo'0';}?>"
+
+
+
+//save old value in multie selec options------------------
+{{ (collect(old('supplier_id'))->contains($supplier->id)) ? 'selected':'' }}
+
+
+// remove HTML tags (all) from a string ------------------
+strip_tags($subject->body)
+                                                            {{ strip_tags($depart->keyword) }}
+
+
+// Convert special characters to HTML entities -----------------
+htmlspecialchars($subject->body)
+
+
+//to display string with the effect of html tags-----------
+ $name1= str_replace('&lt;', '<',($product->name_ar));
+ $name2= str_replace('&gt;', '>',($name1));
+ echo $name2;
+
+
+//full path of image stored in storage----------------------
+'image' =>asset('storage/about_us/' . $this->image),
+
+
+//full path of image stored in public-------------------------
+'site_logo' => asset('public/images/' . $this->site_logo),
+
+
+//------------------------handel mail-------------------------
+//create a new email class-----------------
+php artisan help make:mail
+
+//-m for markdown
+//ده الوسيط اللى ممكن استخدمه علشان اتنقل من الكنترولر للفيو وهستخدمه كمان لو عايزه الميل بتاعى يتبعت بعد وقت معين 
+php artisan make:mail ConatctEmail -m emails.welcome
+
+//هعمل صفحه فيو فيها شكل الميل اللى هيتبعت وتستقبل الداتا من الكنترولر                  
+
+// هستدعى كلاس الميل فى الكنترولر
+use Illuminate\Support\Facades\Mail;
+use App\Mail\ConatctEmail;
+
+
+//هكتب فنكشن الميل فى الكنترولر
+
+//laravel send mail
+//هستخدم سيند هنا لو هتعامل مع ملفConatctEmail 
+Mail::To($to_email) ->send(new ConatctEmail($data));
+
+//وفى ملف  ConatctEmail هكتب 
+<?php
+
+namespace App\Mail;
+
+use Illuminate\Bus\Queueable;
+use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Mail\Mailable;
+use Illuminate\Queue\SerializesModels;
+
+class ConatctEmail extends Mailable
+{
+    use Queueable, SerializesModels;
+
+     public $dd;
+    public $maill;
+    public function __construct($data)
+    {
+        $this->dd=$data;
+        $this->maill=$data['mail'];
+
+    }
+
+  
+    public function build()
+    {
+        return $this->from($this->maill)
+                    ->view('emails.contact');
+    }
+}
+
+
+
+// or this ------------to handel subject &reply
+Mail::send(
+                'emails.contact',
+                array(
+                    'title' => 'Contact Mail -- تواصل معنا ',
+                    'name' => $request->get('name'),
+                    'mail' => $request->get('email'),
+                    'phone' => $request->get('phone'),
+                    'content' => $request->get('message'),
+                ),
+                function ($message) use ($request) {
+                    $message->subject("Contact Mail -- تواصل معنا ");
+                    $message->to($site_email);
+                   // $message->to('eradunited@murabba.dev');
+                    $message->from($request->email);
+
+                }
+            );
+
+//in .env add mail driver--------------------
+MAIL_DRIVER=smtp
+MAIL_HOST=mail.murabba.dev
+MAIL_PORT=465
+MAIL_USERNAME=eradunited@murabba.dev
+MAIL_PASSWORD='yg)5tUUj#*qy'
+MAIL_ENCRYPTION=ssl
+MAIL_FROM_NAME="Eracdco"
+
+//=========================================================
+
+Route::post('delete_all_product', 'ProductController@deleteAll')->name('delete_all_product');
+
+
+
+ <center><button type="button" disabled class="btn btn-danger"  id="btn_delete_all">حذف المُحدد</button></center>
+
+ <table id="datatable"
+
+
+ <th><input type="checkbox" name="select_all" onclick="checkAll('box1',this)"></th>
+
+
+ <td><input type="checkbox" value="{{$cont->id}}" class="box1" onclick="javascript:check();"></td>
+
+
+
+ <!--========================================================-->
+ <?php $type="product";?>
+  @include('delete_all_model')
+    <!--========================================================-->   
+
+
+<script src="{{ URL::asset('/js/jquery-3.3.1.min.js') }}"></script>
+<script src="{{ URL::asset('/js/delete_all.js') }}"></script>
+
+
+
+
+
+use Illuminate\Http\Request;
+
+
+
+  public function deleteAll(Request $request)
+    {
+      $all_ids = explode(',',$request->delete_all_id);
+     // dd($all_ids);
+     Contact::whereIn('id',$all_ids)->delete();
+     return redirect()->route('contact.index')->with(['success'=>'تم الحذف بنجاح']);
+    }
+//---------------------------------------------------------------
+
+ // Path to the project's root folder    
+echo base_path();
+
+// Path to the 'app' folder    
+echo app_path();        
+
+// Path to the 'public' folder    
+echo public_path();
+
+// Path to the 'storage' folder    
+echo storage_path();
+
+// Path to the 'storage/app' folder    
+echo storage_path('app');
+
+
+return $carbon->toDateTimeString();
+return $carbon->diffForHumans(); هيجيب الفرق بين التاريخ الى هيقراه وتاريخ دلوقت
+
+
+ 'name' =>str_replace(' ', '_',$this->name),
+                'name2' =>nl2br($this->name),
+                'name3' =>preg_replace("/\r\n|\r|\n/", '<br/>', $this->name),
+
+//--------------------keywords style------------------------------
+ //replace any \n\r with <br /> tage and then explode depend on it to git array of all keywords
+            $keys=explode('<br />',preg_replace("/\r\n|\r|\n/", '<br />', $request->keyword));
+            $new_keys=array();
+            foreach($keys as $k){
+                //handel ecah array element to be span tag
+                array_push($new_keys,'<span class="badge bg-secondary">'.$k.'</span><br/>');
+            }
+            // then convert array to string to be stored in db
+            $depart->keyword=implode($new_keys);
+
+//-------------------check table is empty or no-------------------
+$count = \DB::table('company')->count();
+if($count == 0) {
+   //add fake data...
+}else {
+  //data already there no need to add fake data
+}
+
+
+//-------------------reset table auto-increament-------------------
+
+use Illuminate\Support\Facades\DB;
+
+$max = DB::table('releases')->max('id') + 1; 
+DB::statement("ALTER TABLE releases AUTO_INCREMENT =  $max");
+
+
+//------------regex for accept only english character ,numbers,special character,space---------------
+ 'title_en' => 'required|regex:/^[a-zA-Z_@.\s\#&+(){}-][a-zA-Z0-9_@.\s\#&+(){}-]+$/uu',
+
+'logo' => 'image|mimes:jpg,png,jpeg,gif,svg|dimensions:max_width=300,max_height=300'. $this->id,
+
+
+
+//--------------------(Polymorphic)------------------------------
+
+php artisan make:model Image -m
+
+- one-to-one
+	لو الطالب ليه صوره واحده بس مش اكتر مثلا او الاعدادت ومن نحن ممكن يكون ليهم صوره واحده بس
+
+class Post extends Model
+{
+    /**
+     * Get the post's image.
+     */
+    public function image()
+    {
+        return $this->morphOne(Image::class, 'imageable');
+    }
+}
+
+
+
+class Image extends Model
+{
+    /**
+     * Get the parent imageable model (user or post).
+     */
+    public function imageable()
+    {
+        return $this->morphTo();
+    }
+}
+ 
+class Post extends Model
+{
+    /**
+     * Get the post's image.
+     */
+    public function image()
+    {
+        return $this->morphOne(Image::class, 'imageable');
+    }
+}
+
+
+- one-to-many
+	لو الطالب ليه اكتر من صوره
+
+class Post extends Model
+{
+    /**
+     * Get the post's image.
+     */
+    public function images()
+    {
+        return $this->morphMany(Image::class, 'imageable');
+    }
+}
+
+
+
+class Image extends Model
+{
+    /**
+     * Get the parent imageable model (user or post).
+     */
+    public function imageable()
+    {
+        return $this->morphTo();
+    }
+}
+
+//---- retreive post images
+use App\Models\Post;
+$post = Post::find(1);
+$image = $post->image; //echo $image->filename
+
+
+
+
+GRANT ALL PRIVILEGES ON `design_pattern_try`.* TO 'viewmurabba_trainingeradico'@'localhost' WITH GRANT OPTION; REVOKE ALL PRIVILEGES ON `viewmurabba_trainingeradico`.* FROM 'viewmurabba_trainingeradico'@'localhost'; GRANT ALL PRIVILEGES ON `viewmurabba_trainingeradico`.* TO 'viewmurabba_trainingeradico'@'localhost' WITH GRANT OPTION;
+
+
+//-------------------seeder-----------------------
+public function run(){
+	factory(App\Models\Product::class,50)->create();
+
+}
+
+php artisan tinker
+User::factory()->count(30)->create()
+
+//-------------------factory -------------------------
+
+$factory->define(App\Model\Product::class,function(Faker $faker){
+
+	return[
+		'first_name'=>$faker->firstName,
+		'last_name'=>$faker->lastName,
+		'email'=>$faket->unique()->safeEmail,
+
+	    'name' => $this->faker->name(),
+            'gender' => $this->faker->randomElement(['male', 'female']),
+            'email' => $this->faker->unique()->safeEmail(),
+            'phone' => $this->faker->phoneNumber(),
+            'email_verified_at' => now(),
+            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+            'remember_token' => Str::random(10),
+
+	];
+});
+
+
+//-----------------------------------------------------------------------------
+//accept english letters and all numbers and some of special characters
+
+regex:/^[a-zA-Z_@.\s\#&+(){}:,% ^ =" ® © >< $ -][a-zA-Z0-9_@.\s\#&+(){}: ,% ^ = " ® ©> <$ -]+$/uu
+
+
+//-----------------------------------------------------------------------------
+
+//this if not using encryption for id****************
+unique:products,name_ar,'.$this->id,
+
+//this if using encryption for id****************
+unique:products,name_ar,'.decrypt($this->id), // this for only update
+
+//------ this for both add & update 
+ if(isset($this->id)){$cond=decrypt($this->id);}else{$cond='';}
+unique:products,name_ar,'.$cond,
+
+//----------------------------------------------------------------------------
+// validate name to be unique only in add but pass it when edit
+
+ //'name_ar'       =>'required|unique:products,name_ar,'.$this->id,
+   'name_en'       =>'required|regex:/^[a-zA-Z_@.\s\#&+(){}:,% ^ =" ® © >< $ -][a-zA-Z0-9_@.\s\#&+(){}: ,% ^ = " ® ©> <$ -]+$/uu|unique:products,name_en,'.$this->id,
+  
+	 'name_ar' => [
+                'required',
+                Rule::unique('products','name_ar')->ignore(decrypt($this->id)),
+            ],          
+
+            <!-- <option  style="<?php if($type=='product'||$type=='supplier_section'||$type=='release'){echo'margin-right:'. ($margin) .'px;';}?>color: {{$color}};" value="{{ $child->id }}" <?php echo $select_or_no;?>> <?php echo $extra;?> {{ $child->$show_name }}</option> -->
+
+//----------------------------------------------------------------------------
+  // 'photos.*'       => 'required|image|mimes:jpg,png,jpeg,gif,svg|dimensions:max_width=1200,max_height=600,min_width=850,min_height=315'. $cond,
+        //'photos.*.dimensions'      =>'الأبعاد [يجب أن يكون العرض بين (850 و 1200) ، ويجب أن يكون الارتفاع بين (315 و 600)]',
+
+
+
+Step 1: Setup the app
+
+
+    1. git clone https://github.com/Kingsconsult/laravel_8_crud.git
+    2. cd laravel_8_crud/
+    3. composer install
+    4. npm install
+    5. cp .env.example .env
+    6. php artisan key:generate
+    7. Add your database config in the .env file (you can check my articles on how to achieve that)
+    8. php artisan migrate
+    9. php artisan serve (if the server opens up, http://127.0.0.1:8000, then we are good to go)

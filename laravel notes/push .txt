@@ -1,0 +1,1137 @@
+- Push Notification mechanism is a functionality of DOTWconnect Booking engine, which facilitates DOTWconnect API to push the rates & availability using the OTA standard to any Customer who is interested to build a local cache system on their side.
+
+- If the subscribeforpush method received a Success flag from DOTW API, then in few minutes DOTWconnect will start sending the rates and availability for all subscribed hotels for the next 180 days. 
+
+- the customer can also request for a fresh push of all the subscribed properties by using the dedicated forcepush request.
+
+- At anytime the customer can receive a list of hotels they have subscribed to by sending the getsubscribedhotels request. 
+
+
+DOTW system can push the notification in two methods:
+
+
+Full dump: all the data is pushed in one shot once or twice per day, as agreed with customer.
+
+Incremental: One initial full dump is required, then the system will push notifications nearly in real time. This is also the recommended method to be used by our customers.
+
+
+The Push notification methods are based on OTA Standards and the following are the methods
+
+- OTA_RatesNotifRQ – for the rates
+
+- OTA_AvailNotifRQ – for the availability
+
+- OTA_HotelDescriptiveInfoRQ for hotel information
+
+- OTA_HotelRatePlanRQ this request provides information about applicable promotions. At the moment DOTW system only push two types of promotions:
+
+StayXPayY;
+StayXGetDiscount
+
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+DOTWconnect server has the following XML requests commands for hotels:
+
+searchhotels
+getrooms
+savebooking
+confirmbooking
+getbookingdetails
+updatebooking
+cancelbooking
+bookitinerary
+deleteitinerary
+searchbookings
+
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+اﻻليه كلها اسمها Push Notification mechanism ... علشان اكون up to date ﻻزم اتواصل مع اﻻداره واحجز او اشترك فى اﻻليه دى ... 
+ال subscribeforpush دى لو رجعت Success معناها ان اﻻعدادت تمت تمام والسيرفر هيبعتلى التحديثات الخاصه بالتقييمات واﻻتاحه للفنادق اللى اشتركت فيها لمده 180 يوم كمان ... 
+ولو حصل اى تغير او تحديث للداتا هيجيلى اشعار بكده...
+ ولو حصل اى تغيير فى العمله بالنسبه للعمله المختاره من العميل هيتم ارسال اشعار بالتحديث ايضا ... 
+والعميل ممكن يوقف او يعدى اﻻشعار ده او يتجاهله  لو مش عايز يستقبل كميه من الداتا يوميا...
+العميل ممكن يعمل ريفرش لكل الpush الخاصه بالفنادق المشترك فيها باستخدم ال forcepush...
+ال getsubscribedhotels بيجبلى مجموعه الفنادق اللى العميل مشترك فيها بحيث ممكن يضيف او يحذف منها...
+ولو عايز يلغى اﻻشتراك لفندق معين هيستخدم ال unsubscribefrompush
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+عمليه ارسال الاشعارات او التحديثات ممكن تتمم بطريقتين 
+1- ال Full dump ودى كل الداتا بتتبعت دفعه واحده مره او مرتين فى اليوم .. ع حسب اﻻتفاق
+2- ال Incremental الداتا كلها محتاجه تتبعت اول مره خالص وبعدين السيستم هيبعت التعديﻻت بس  و دى اﻻفضل.
+
+
+علشان نعمل اول خطوه وهى اﻻشتراك مع فنادق معينه to subscribe for DOTW's push mechanism بنعمل الريكوست ده  .. هستخدم subscribetopush
+<customer>  
+    <username>Amnahvisitor1</username>
+    <password>7ea4255960e43cb18bbcd5eb94b72318</password>
+    <id>1789605</id>
+    <source>1</source>  
+    <request command="subscribetopush">  
+        <hotelIds>  
+            <hotelId>123</hotelId>  
+            <hotelId>456</hotelId>  
+            <hotelId>789</hotelId>    
+        </hotelIds>  
+    </request>  
+</customer>  
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+علشان اجيب التحديثات الخاصه باﻻسعار   The OTA_HotelRateAmountNotifRQ message is used to push rates to subscribed customers.
+
+<POS>               -----**     Point of sale container, used to hold login information
+<RateAmountMessages>-----**     used to hold rate information
+@RatePlanCategory	-----**     Payment method, always 501
+@RatePlanCode       -----**     DOTW Rate ID
+@InvTypeCode	    -----**     DOTW Room type ID
+ <Rates>            -----**     Container used to hold multiple rate periods
+
+
+
+
+<OTA_HotelRateAmountNotifRQ xmlns="http://www.opentravel.org/OTA/2003/05" Version="2.1" PrimaryLangId="en-us" Timestamp="2015-11-12T07:59:21+00:00">  
+    <POS>  
+        <Source>  
+            <RequestorID ID="Amnahvisitor1" MessagePassword="7ea4255960e43cb18bbcd5eb94b72318" Type="1">  
+                <CompanyName Code="C" CodeContext="1789605"></CompanyName>  
+            </RequestorID>  
+        </Source>  
+    </POS>  
+    <RateAmountMessages HotelCode="">  
+        <RateAmountMessage>  
+            <StatusApplicationControl RatePlanCategory="501" RatePlanCode="" InvTypeCode=""></StatusApplicationControl>  
+            <Rates>  
+                <Rate Start="2015-12-06" End="2015-12-23">  
+                    <BaseByGuestAmts>  
+                        <BaseByGuestAmt Code="Sell" AmountAfterTax="" CurrencyCode="USD"></BaseByGuestAmt>  
+                    </BaseByGuestAmts>  
+                    <MealsIncluded Breakfast="true" NumberOfBreakfast=""></MealsIncluded>  
+                </Rate>  
+            </Rates>  
+        </RateAmountMessage>  
+    </RateAmountMessages>  
+</OTA_HotelRateAmountNotifRQ>  
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+علشان اجيب او اعرف مجموعه الفنادق اللى مشتركه فيها هستخدم getsubscribedhotels
+
+<customer>  
+    <username>username</username>  
+    <password>md5(password)</password>  
+    <id>company_code</id>  
+    <source>1</source>  
+    <request command="getsubscribedhotels"></request>  
+</customer>  
+
+النتيجه 
+
+<result command="getsubscribedhotels" tID="123456789" ip="10.10.10.10" date="2015-11-17 11:05:51" version="3.0" elapsedTime="0.012107849121094">  
+    <hotelIds count="3">  
+        <hotelId>123</hotelId>  
+        <hotelId>456</hotelId>  
+        <hotelId>789</hotelId>  
+    </hotelIds>  
+    <successful>TRUE</successful>  
+</result>  
+
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+علشان اجيب التحديثات الخاصه باﻻتاحه   The OTA_HotelAvailNotifRQ message is used to push availability to subscribed customers..
+ (OTA_HotelAvailNotifRQ) used to push availability grouped by hotel id
+
+
+
+<POS>               -----**     Point of sale container, used to hold login information
+<RateAmountMessages>-----**     used to hold rate information
+@RatePlanCategory	-----**     Payment method, always 501
+@RatePlanCode       -----**     DOTW Rate ID
+@InvTypeCode	    -----**     DOTW Room type ID
+@BookingLimit       -----**     The number of rooms available for this hotel
+@BookingLimitMessageType ----** Defaults to SetLimit
+@Status             ----**      Inventory status "Open/Close". Can be used to open or close allocation for a specific period.
+
+
+
+<OTA_HotelAvailNotifRQ xmlns="http://www.opentravel.org/OTA/2003/05" Version="2.1" PrimaryLangId="en-us" Timestamp="2015-11-12T07:59:22+00:00">  
+    <POS>  
+        <Source>  
+            <RequestorID ID="" MessagePassword="" Type="1">  
+                <CompanyName Code="C" CodeContext=""></CompanyName>  
+            </RequestorID>  
+        </Source>  
+    </POS>  
+    <AvailStatusMessages HotelCode="">  
+        <AvailStatusMessage BookingLimit="1" BookingLimitMessageType="SetLimit">  
+            <StatusApplicationControl Start="2015-11-12" End="2015-12-16" RatePlanCode="" InvTypeCode="" RatePlanCategory="501">  
+                <RestrictionStatus Status="Open"></RestrictionStatus>  
+            </StatusApplicationControl>  
+        </AvailStatusMessage>  
+    </AvailStatusMessages>  
+</OTA_HotelAvailNotifRQ>  
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+علشان احدد البوش فى فتره معينه او عايزه الداتا اللى كانت موجوده فى فتره معينه هستخدم ال forcepush
+
+ to force the push of rates and availability for a specific period of time. Customers must first subscribe to the push mechanism.
+
+ 
+<customer>  
+    <username>username</username>  
+    <password>md5(password)</password>  
+    <id>company_code</id>  
+    <source>1</source>  
+    <request command="forcepush">  
+        <fromDate>2015-11-20</fromDate>  
+        <toDate>2015-11-30</toDate>  
+        <hotelIds>  
+            <hotelId>123456</hotelId>  
+        </hotelIds>  
+    </request>  
+</customer>  
+
+
+
+
+<result command="forcepush" date="2015-11-17 08:43:22" elapsedtime="0.39209508895874" ip="10.10.10.10" tid="123456798" version="3.0">  
+    <successful>TRUE/FALSE</successful>  
+</result>  
+
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+لالغاء اﻻشتراك لفنادق معينه هستخدم unsubscribefrompush
+<customer>  
+    <username>username</username>  
+    <password>md5(password)</password>  
+    <id>company_code</id>  
+    <source>1</source>  
+    <request command="unsubscribefrompush">  
+        <hotelIds>  
+            <hotelId>123</hotelId>  
+        </hotelIds>  
+    </request>  
+</customer> 
+
+
+
+
+<result command="unsubscribefrompush" date="2015-11-17 08:43:22" elapsedtime="0.39209508895874" ip="10.10.10.10" tid="123456798" version="3.0">  
+    <successful>TRUE/FALSE</successful>  
+</result> 
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+The OTA_HotelAvailNotifRQ message is used to push availability grouped by hotel id to subscribed customers.
+
+
+
+<OTA_HotelAvailNotifRQ xmlns="http://www.opentravel.org/OTA/2003/05" Version="2.1" PrimaryLangId="en-us" Timestamp="2015-11-12T07:59:22+00:00">  
+    <POS>  
+        <Source>  
+            <RequestorID ID="" MessagePassword="" Type="1">  
+                <CompanyName Code="C" CodeContext=""></CompanyName>  
+            </RequestorID>  
+        </Source>  
+    </POS>  
+    <AvailStatusMessages HotelCode="1234">  
+        <AvailStatusMessage BookingLimit="0" BookingLimitMessageType="SetLimit">  
+            <StatusApplicationControl Start="2017-10-12" End="2017-12-31" InvTypeCode="1234" RatePlanCode="1234" RatePlanCategory="501"></StatusApplicationControl>  
+            <RestrictionStatus Status="Close"></RestrictionStatus>  
+        </AvailStatusMessage>  
+        <AvailStatusMessage BookingLimit="15" Cutoff="1" BookingLimitMessageType="SetLimit">  
+            <StatusApplicationControl Start="2018-01-01" End="2018-12-14" InvTypeCode="1234" RatePlanCode="1234" RatePlanCategory="501"></StatusApplicationControl>  
+            <RestrictionStatus Status="Open"></RestrictionStatus>  
+        </AvailStatusMessage>  
+        <AvailStatusMessage BookingLimit="15" Cutoff="1" BookingLimitMessageType="SetLimit">  
+            <StatusApplicationControl Start="2017-10-12" End="2017-10-24" InvTypeCode="4321" RatePlanCode="4321" RatePlanCategory="501"></StatusApplicationControl>  
+            <RestrictionStatus Status="Open"></RestrictionStatus>  
+        </AvailStatusMessage>  
+        <AvailStatusMessage BookingLimit="14" Cutoff="1" BookingLimitMessageType="SetLimit">  
+            <StatusApplicationControl Start="2017-10-25" End="2017-10-28" InvTypeCode="4321" RatePlanCode="4321" RatePlanCategory="501"></StatusApplicationControl>  
+            <RestrictionStatus Status="Close"></RestrictionStatus>  
+        </AvailStatusMessage>  
+    </AvailStatusMessages>  
+</OTA_HotelAvailNotifRQ> 
+
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+The OTA_HotelRateAmountNotifRQ message is used to push rates, grouped by hotel code, to subscribed customers.
+
+
+<OTA_HotelRateAmountNotifRQ xmlns="http://www.opentravel.org/OTA/2003/05" Version="2.1" PrimaryLangId="en-us" Timestamp="2017-10-12T15:23:23+00:00">  
+    <POS>  
+        <Source>  
+            <RequestorID ID="" MessagePassword="" Type="1">  
+                <CompanyName Code="C" CodeContext=""></CompanyName>  
+            </RequestorID>  
+        </Source>  
+    </POS>  
+    <RateAmountMessages HotelCode="1234">  
+        <RateAmountMessage>  
+            <StatusApplicationControl RatePlanCategory="501" InvTypeCode="1234" RatePlanCode="1234"></StatusApplicationControl>  
+            <Rates>  
+                <Rate Start="2017-10-12" End="2017-10-19">  
+                    <BaseByGuestAmts>  
+                        <BaseByGuestAmt Code="Sell" AgeQualifyingCode="10" Count="1" AmountAfterTax="57.719" CurrencyCode="USD"></BaseByGuestAmt>  
+                        <BaseByGuestAmt Code="Sell" AgeQualifyingCode="10" Count="2" AmountAfterTax="86.579" CurrencyCode="USD"></BaseByGuestAmt>  
+                        <BaseByGuestAmt Code="Sell" AgeQualifyingCode="10" Count="3" AmountAfterTax="115.438" CurrencyCode="USD"></BaseByGuestAmt>  
+                        <BaseByGuestAmt Code="Sell" AgeQualifyingCode="10" Count="4" AmountAfterTax="144.298" CurrencyCode="USD"></BaseByGuestAmt>  
+                        <BaseByGuestAmt Code="Sell" AgeQualifyingCode="10" Count="5" AmountAfterTax="173.157" CurrencyCode="USD"></BaseByGuestAmt>  
+                    </BaseByGuestAmts>  
+                    <MealsIncluded Breakfast="false" RateBasis="0"></MealsIncluded>  
+                    <CancellationRules count="2">  
+                        <CancellationRule>  
+                            <Type>1</Type>  
+                            <Deadline>15</Deadline>  
+                            <Penalty Type="1">50</Penalty>  
+                            <IsRestricted>false</IsRestricted>  
+                        </CancellationRule>  
+                        <CancellationRule>  
+                            <Type>4</Type>  
+                            <Penalty Type="1">100</Penalty>  
+                            <IsRestricted>false</IsRestricted>  
+                        </CancellationRule>  
+                    </CancellationRules>  
+                </Rate>  
+                <Rate Start="2017-10-20" End="2017-12-31">  
+                    <BaseByGuestAmts>  
+                        <BaseByGuestAmt Code="Sell" AgeQualifyingCode="10" Count="1" AmountAfterTax="43.289" CurrencyCode="USD"></BaseByGuestAmt>  
+                        <BaseByGuestAmt Code="Sell" AgeQualifyingCode="10" Count="2" AmountAfterTax="72.149" CurrencyCode="USD"></BaseByGuestAmt>  
+                        <BaseByGuestAmt Code="Sell" AgeQualifyingCode="10" Count="3" AmountAfterTax="95.236" CurrencyCode="USD"></BaseByGuestAmt>  
+                        <BaseByGuestAmt Code="Sell" AgeQualifyingCode="10" Count="4" AmountAfterTax="121.21" CurrencyCode="USD"></BaseByGuestAmt>  
+                        <BaseByGuestAmt Code="Sell" AgeQualifyingCode="10" Count="5" AmountAfterTax="144.298" CurrencyCode="USD"></BaseByGuestAmt>  
+                    </BaseByGuestAmts>  
+                    <MealsIncluded Breakfast="false" RateBasis="0"></MealsIncluded>  
+                    <CancellationRules count="2">  
+                        <CancellationRule>  
+                            <Type>1</Type>  
+                            <Deadline>15</Deadline>  
+                            <Penalty Type="1">50</Penalty>  
+                            <IsRestricted>false</IsRestricted>  
+                        </CancellationRule>  
+                        <CancellationRule>  
+                            <Type>4</Type>  
+                            <Penalty Type="1">100</Penalty>  
+                            <IsRestricted>false</IsRestricted>  
+                        </CancellationRule>  
+                    </CancellationRules>  
+                </Rate>  
+            </Rates>  
+            <ValidMarkets>  
+                <Market Type="R">0</Market>  
+            </ValidMarkets>  
+        </RateAmountMessage>  
+        <RateAmountMessage>  
+            <StatusApplicationControl RatePlanCategory="501" InvTypeCode="5555" RatePlanCode="5555"></StatusApplicationControl>  
+            <Rates>  
+                <Rate Start="2017-10-12" End="2017-10-19">  
+                    <BaseByGuestAmts>  
+                        <BaseByGuestAmt Code="Sell" AgeQualifyingCode="10" Count="1" AmountAfterTax="60.692" CurrencyCode="USD"></BaseByGuestAmt>  
+                        <BaseByGuestAmt Code="Sell" AgeQualifyingCode="10" Count="2" AmountAfterTax="92.524" CurrencyCode="USD"></BaseByGuestAmt>  
+                        <BaseByGuestAmt Code="Sell" AgeQualifyingCode="10" Count="3" AmountAfterTax="124.356" CurrencyCode="USD"></BaseByGuestAmt>  
+                        <BaseByGuestAmt Code="Sell" AgeQualifyingCode="10" Count="4" AmountAfterTax="156.188" CurrencyCode="USD"></BaseByGuestAmt>  
+                        <BaseByGuestAmt Code="Sell" AgeQualifyingCode="10" Count="5" AmountAfterTax="188.02" CurrencyCode="USD"></BaseByGuestAmt>  
+                    </BaseByGuestAmts>  
+                    <MealsIncluded Breakfast="true" RateBasis="1331" NumberOfBreakfast="1"></MealsIncluded>  
+                    <CancellationRules count="2">  
+                        <CancellationRule>  
+                            <Type>1</Type>  
+                            <Deadline>15</Deadline>  
+                            <Penalty Type="1">50</Penalty>  
+                            <IsRestricted>false</IsRestricted>  
+                        </CancellationRule>  
+                        <CancellationRule>  
+                            <Type>4</Type>  
+                            <Penalty Type="1">100</Penalty>  
+                            <IsRestricted>false</IsRestricted>  
+                        </CancellationRule>  
+                    </CancellationRules>  
+                </Rate>  
+                <Rate Start="2017-10-20" End="2017-12-31">  
+                    <BaseByGuestAmts>  
+                        <BaseByGuestAmt Code="Sell" AgeQualifyingCode="10" Count="1" AmountAfterTax="46.262" CurrencyCode="USD"></BaseByGuestAmt>  
+                        <BaseByGuestAmt Code="Sell" AgeQualifyingCode="10" Count="2" AmountAfterTax="78.094" CurrencyCode="USD"></BaseByGuestAmt>  
+                        <BaseByGuestAmt Code="Sell" AgeQualifyingCode="10" Count="3" AmountAfterTax="104.154" CurrencyCode="USD"></BaseByGuestAmt>  
+                        <BaseByGuestAmt Code="Sell" AgeQualifyingCode="10" Count="4" AmountAfterTax="133.1" CurrencyCode="USD"></BaseByGuestAmt>  
+                        <BaseByGuestAmt Code="Sell" AgeQualifyingCode="10" Count="5" AmountAfterTax="159.16" CurrencyCode="USD"></BaseByGuestAmt>  
+                        <BaseByGuestAmt Code="Sell" AgeQualifyingCode="8" Count="1" AgeFrom="0" AgeTo="11" AmountAfterTax="FREE" CurrencyCode="USD"></BaseByGuestAmt>  
+                        <BaseByGuestAmt Code="Sell" AgeQualifyingCode="8" Count="2" AgeFrom="0" AgeTo="11" AmountAfterTax="FREE" CurrencyCode="USD"></BaseByGuestAmt>  
+                    </BaseByGuestAmts>  
+                    <MealsIncluded Breakfast="true" RateBasis="1331" NumberOfBreakfast="1"></MealsIncluded>  
+                    <CancellationRules count="2">  
+                        <CancellationRule>  
+                            <Type>1</Type>  
+                            <Deadline>15</Deadline>  
+                            <Penalty Type="1">50</Penalty>  
+                            <IsRestricted>false</IsRestricted>  
+                        </CancellationRule>  
+                        <CancellationRule>  
+                            <Type>4</Type>  
+                            <Penalty Type="1">100</Penalty>  
+                            <IsRestricted>false</IsRestricted>  
+                        </CancellationRule>  
+                    </CancellationRules>  
+                </Rate>  
+            </Rates>  
+            <ValidMarkets>  
+                <Market Type="R">12</Market>  
+                <Market Type="C">16</Market>  
+            </ValidMarkets>  
+        </RateAmountMessage>  
+    </RateAmountMessages>  
+</OTA_HotelRateAmountNotifRQ>  
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+The OTA_HotelDescriptiveInfoRQ message is used to push hotel information to subscribed customers.
+
+OTA_HotelDescriptiveInfoRQ
+
+<CheckInTime>                    ----**  Hotel check-in time in 24-hour format
+<SingleAdultAndChildBookings>    ----**  Specifies how single adult with children bookings will be handled if the child age is > than the child max age for the room. Possible values: 0 - Apply 1 adult & child rate, 1 - Convert the child to an adult and apply adult prices
+
+ <MarketSpecificRatesPolicy>     ----**	Specifies how the rate ValidMarket is applied. Possible values: 0 - Based on Travel Agent Location, 1 - Based on Passenger Residency, 2 - Based on Passenger Nationality
+
+
+
+
+<OTA_HotelDescriptiveInfoRQ xmlns="http://www.opentravel.org/OTA/2003/05" Version="2.1" PrimaryLangId="en-us" Timestamp="2017-11-10T12:41:45+00:00">  
+    <POS>  
+        <Source>  
+            <RequestorID ID="" MessagePassword="" Type="1">  
+                <CompanyName Code="C" CodeContext=""></CompanyName>  
+            </RequestorID>  
+        </Source>  
+    </POS>  
+    <HotelDescriptiveInfo HotelCode="1234">  
+        <CheckInTime>15:00</CheckInTime>  
+        <SingleAdultAndChildBookings>0</SingleAdultAndChildBookings>  
+        <MarketSpecificRatesPolicy>1</MarketSpecificRatesPolicy>  
+    </HotelDescriptiveInfo>  
+</OTA_HotelDescriptiveInfoRQ> 
+
+
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+The OTA_HotelRatePlanRQ message is used to push promotion information to subscribed customers.
+
+
+
+<OTA_HotelRatePlanRQ xmlns="http://www.opentravel.org/OTA/2003/05" Version="2.1" PrimaryLangId="en-us" Timestamp="2017-09-27T12:42:46+00:00">  
+    <POS>  
+        <Source>  
+            <RequestorID ID="" MessagePassword="" Type="1">  
+                <CompanyName Code="C" CodeContext=""></CompanyName>  
+            </RequestorID>  
+        </Source>  
+    </POS>  
+    <Offers HotelCode="1234">  
+        <Offer OfferCode="template1:template1" OfferStatus="new">  
+            <OfferRules>  
+                <OfferRule>  
+                    <DateRestriction RestrictionType="booking" Start="2017-09-27" End="2017-11-30"></DateRestriction>  
+                    <DateRestriction RestrictionType="stay" Start="2017-09-27" End="2017-11-30"></DateRestriction>  
+                    <DateRestriction RestrictionType="maxStay" Days="30"></DateRestriction>  
+                    <DOW_Restrictions>  
+                        <AvailableDaysOfWeek Sun="true" Mon="true" Tue="true" Thu="true" Fri="true" Sat="true"></AvailableDaysOfWeek>  
+                    </DOW_Restrictions>  
+                </OfferRule>  
+            </OfferRules>  
+            <Discount NightsRequired="4" NightsDiscounted="1"></Discount>  
+            <ApplicableRatePlanCodes>  
+                <ApplicableRatePlanCode>1234</ApplicableRatePlanCode>  
+            </ApplicableRatePlanCodes>  
+            <AppliesMultipleTimes>TRUE</AppliesMultipleTimes>  
+            <CancellationPolicy>  
+                <CancelRestricted>TRUE</CancelRestricted>  
+                <AmendRestricted>TRUE</AmendRestricted>  
+            </CancellationPolicy>  
+        </Offer>  
+        <Offer OfferCode="test:test" OfferStatus="deleted">  
+            <OfferRules>  
+                <OfferRule>  
+                    <DateRestriction RestrictionType="booking" Start="2017-09-26" End="2017-10-31"></DateRestriction>  
+                    <DateRestriction RestrictionType="stay" Start="2017-09-26" End="2017-11-30"></DateRestriction>  
+                    <DateRestriction RestrictionType="maxStay" Days="30"></DateRestriction>  
+                    <DOW_Restrictions>  
+                        <AvailableDaysOfWeek Mon="true" Tue="true" Wed="true" Thu="true" Fri="true"></AvailableDaysOfWeek>  
+                    </DOW_Restrictions>  
+                </OfferRule>  
+            </OfferRules>  
+            <Discount NightsRequired="4" NightsDiscounted="1"></Discount>  
+            <ApplicableRatePlanCodes>  
+                <ApplicableRatePlanCode>1234</ApplicableRatePlanCode>  
+            </ApplicableRatePlanCodes>  
+            <Closeouts>  
+                <StartDate>2018-06-05</StartDate>  
+                <EndDate>2018-07-01</EndDate>  
+            </Closeouts>  
+            <AppliesMultipleTimes>FALSE</AppliesMultipleTimes>  
+            <CancellationPolicy>  
+                <CancelRestricted>TRUE</CancelRestricted>  
+                <AmendRestricted>FALSE</AmendRestricted>  
+            </CancellationPolicy>  
+        </Offer>  
+        <Offer OfferCode="test2:test2" OfferStatus="updated">  
+            <OfferRules>  
+                <OfferRule>  
+                    <DateRestriction RestrictionType="booking" Start="2017-09-26" End="2017-11-30"></DateRestriction>  
+                    <DateRestriction RestrictionType="stay" Start="2017-09-26" End="2017-11-30"></DateRestriction>  
+                    <DateRestriction RestrictionType="maxStay" Days="30"></DateRestriction>  
+                    <DOW_Restrictions>  
+                        <AvailableDaysOfWeek Tue="true" Wed="true" Thu="true" Fri="true"></AvailableDaysOfWeek>  
+                    </DOW_Restrictions>  
+                </OfferRule>  
+            </OfferRules>  
+            <Discount NightsRequired="3" Percent="20"></Discount>  
+            <ApplicableRatePlanCodes>  
+                <ApplicableRatePlanCode>1234</ApplicableRatePlanCode>  
+            </ApplicableRatePlanCodes>  
+            <AppliesMultipleTimes>TRUE</AppliesMultipleTimes>  
+            <CancellationPolicy>  
+                <CancelRestricted>FALSE</CancelRestricted>  
+                <AmendRestricted>TRUE</AmendRestricted>  
+            </CancellationPolicy>  
+        </Offer>  
+        <OfferCombinations>  
+            <OfferCombination>  
+                <OfferCode>test2:test2</OfferCode>  
+                <OfferCode>test:test</OfferCode>  
+            </OfferCombination>  
+        </OfferCombinations>  
+    </Offers>  
+</OTA_HotelRatePlanRQ>  
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+DOTWconnect server has the following XML requests commands for hotels:
+
+- searchhotels
+- getrooms
+- savebooking
+- confirmbooking
+- getbookingdetails
+- updatebooking
+- cancelbooking
+- bookitinerary
+- deleteitinerary
+- searchbookings
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+. The request is composed of two separate sections which are 
+
+        1- bookingDetails 
+            The bookingDetails element data contains the travel dates, detailed room occupancy and the preferred internal DOTW currency code which will determine in what currency the prices will be returned. 
+       
+         2- and return. 
+            The return parameter contains details about filtering and room information that the DOTWconnect system returns for each hotel in the response list (if the element getRooms is set to value true).
+
+
+
+For filtering by city you have to specify the city internal code. You can receive city internal codes using ((((((getservingcities)))))) request. This filter is available only when you do not apply a country filter.
+
+
+For filtering by country you have to specify the country internal code. You can receive country internal codes using getservingcountries request. This filter is available only when you do not apply a city filter.
+
+
+<!-تاريخ بدايه السيرش مينفعش يكون تاريخ قديم فى الماضىى -- تاريخ النهارده او تاريخ لسه هيجى ... بحيث نعرض الفنادق المتاحه فى الفتره دى لو حد هيحجز!>
+<fromDate>1652598286</fromDate>  
+
+
+<customer>
+    <username>Amnahvisitor1</username>
+    <password>7ea4255960e43cb18bbcd5eb94b72318</password>
+    <id>1789605</id>
+      <source>1</source>
+    <product>hotel</product>  
+    <request command="searchhotels">  
+        <bookingDetails>  
+            <fromDate>1652598286</fromDate>   
+            <toDate>1653071564</toDate>  
+            <currency>520</currency>  
+            <rooms no="2">  
+                <room runno="0">  
+                    <adultsCode>2</adultsCode>  
+                    <children no="0"></children>  
+                    <rateBasis>-1</rateBasis>  
+                    <passengerNationality>81</passengerNationality>  
+                    <passengerCountryOfResidence>72</passengerCountryOfResidence>  
+                </room>  
+                <room runno="1">  
+                    <adultsCode>2</adultsCode>  
+                    <children no="1">  
+                        <child runno="0">6</child>  
+                    </children>  
+                    <rateBasis>-1</rateBasis>  
+                    <passengerNationality>81</passengerNationality>  
+                    <passengerCountryOfResidence>72</passengerCountryOfResidence>  
+                </room>  
+            </rooms>  
+        </bookingDetails>  
+        <return>  
+            <filters xmlns:a="http://us.dotwconnect.com/xsd/atomicCondition" xmlns:c="http://us.dotwconnect.com/xsd/complexCondition">  
+                <city>364</city>  
+                <nearbyCities>false</nearbyCities>  
+                <c:condition>  
+                    <a:condition>  
+                        <fieldName>rating</fieldName>  
+                        <fieldTest>equals</fieldTest>  
+                        <fieldValues>  
+                            <fieldValue>563</fieldValue>  
+                        </fieldValues>  
+                    </a:condition>  
+                    <operator>AND</operator>  
+                    <a:condition>  
+                        <fieldName>price</fieldName>  
+                        <fieldTest>between</fieldTest>  
+                        <fieldValues>  
+                            <fieldValue>150</fieldValue>  
+                            <fieldValue>300</fieldValue>  
+                        </fieldValues>  
+                    </a:condition>  
+                </c:condition>  
+            </filters>  
+        </return>  
+    </request>  
+</customer>
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+getallroomcategories    ------  used to get a complete list of all categories which are used to define a room type.
+
+<customer>
+    <username>Amnahvisitor1</username>
+    <password>7ea4255960e43cb18bbcd5eb94b72318</password>
+    <id>1789605</id>
+    <source>1</source>
+   <request command="getallroomcategories">  
+        <return>  
+            <fields>  
+                <field>mainCategory</field>  
+                <field>subCategory</field>  
+                <field>view</field>  
+                <field>beddingType</field>  
+                <field>attribute1</field>  
+                <field>attribute2</field>  
+            </fields>  
+        </return>  
+    </request>  
+</customer>
+
+
+
+
+
+getallcities    --------     used to get a complete list with all information needed about cities in the system.
+
+<customer>
+    <username>Amnahvisitor1</username>
+    <password>7ea4255960e43cb18bbcd5eb94b72318</password>
+    <id>1789605</id>
+    <source>1</source>
+      <request command="getallcities">  
+        <return>  
+            <filters>  
+                <countryCode>6</countryCode>  
+                <countryName>UNITED ARAB EMIRATES</countryName>  
+            </filters>  
+            <fields>  
+                <field>countryName</field>  
+                <field>countryCode</field>  
+            </fields>  
+        </return>  
+    </request>   
+</customer>
+
+
+
+
+
+getallcountries     --------    used to get a complete list with all information needed about countries in the system.
+
+<customer>
+    <username>Amnahvisitor1</username>
+    <password>7ea4255960e43cb18bbcd5eb94b72318</password>
+    <id>1789605</id>
+    <source>1</source>
+     <request command="getallcountries">  
+        <return>  
+            <fields>  
+                <field>regionName</field>  
+                <field>regionCode</field>  
+            </fields>  
+        </return>  
+    </request>  
+</customer>
+
+
+
+
+getservingcities    --------
+
+    The requests for this command must have the product element present. Its value will see for what service the servicing cities will be returned. Possible values for the value of product element: hotel, apartment. These command are used to get a complete list with all informaton needed about the cities in the system that have at least one hotel/apartment available in the future.
+
+    Genreal Request
+    The topDeals, luxury, specialDeals siblings of filters element is to be present only when product value is hotel.
+
+
+
+
+<customer>
+    <username>Amnahvisitor1</username>
+    <password>7ea4255960e43cb18bbcd5eb94b72318</password>
+    <id>1789605</id>
+    <source>1</source>
+    <product>hotel</product>
+     <request command="getservingcities">  
+        <return>  
+            <filters>  
+                <topDeals>true</topDeals>  
+                <luxury>true</luxury>  
+                <specialDeals>true</specialDeals>  
+                <countryCode>6</countryCode>  
+                <countryName>UNITED ARAB EMIRATES</countryName>  
+            </filters>  
+            <fields>  
+                <field>countryName</field>  
+                <field>countryCode</field>  
+            </fields>  
+        </return>  
+    </request> 
+</customer>
+
+
+
+
+
+getservingcountries --------
+
+    The requests for this command must have the product element present. Its value will see for what service the servicing countries will be returned. Possible values for the value of product element: hotel, apartment, tour, transfer, visa. This commands is used to get a complete list with all informaton needed about the countries in the system that have at least one hotel/apartment available in the future.
+
+    General Request
+    The topDeals, luxury, specialDeals siblings of filters element is to be present only when product value is hotel.
+
+
+<customer>
+    <username>Amnahvisitor1</username>
+    <password>7ea4255960e43cb18bbcd5eb94b72318</password>
+    <id>1789605</id>
+    <source>1</source>
+    <product>visa</product>
+    <request command="getservingcountries">  
+        <return>  
+            <filters>  
+                <topDeals>true</topDeals>  
+                <luxury>true</luxury>  
+                <specialDeals>true</specialDeals>  
+            </filters>  
+            <fields>  
+                <field>name</field>  
+                <field>code</field>  
+                <field>regionName</field>  
+                <field>regionCode</field>  
+            </fields>  
+        </return>  
+    </request> 
+</customer>
+
+
+
+
+
+getcurrenciesids --------- return ids of currencies in system
+
+
+<customer>
+    <username>Amnahvisitor1</username>
+    <password>7ea4255960e43cb18bbcd5eb94b72318</password>
+    <id>1789605</id>
+    <source>1</source>
+        <request command="getcurrenciesids"></request>   
+</customer>
+
+
+
+
+
+
+
+getlanguagesids ------ return all languages
+
+
+<customer>
+    <username>Amnahvisitor1</username>
+    <password>7ea4255960e43cb18bbcd5eb94b72318</password>
+    <id>1789605</id>
+    <source>1</source>
+     <request command="getlanguagesids"></request>  
+</customer>
+
+
+
+
+getleisureids   ------ return list with all hotel leisure and sports amenities.
+
+
+<customer>
+    <username>Amnahvisitor1</username>
+    <password>7ea4255960e43cb18bbcd5eb94b72318</password>
+    <id>1789605</id>
+    <source>1</source>
+     <request command="getleisureids"></request>  
+</customer>
+
+
+
+
+getbusinessids  ---------- return list with all business features.
+
+
+<customer>
+    <username>Amnahvisitor1</username>
+    <password>7ea4255960e43cb18bbcd5eb94b72318</password>
+    <id>1789605</id>
+    <source>1</source>
+     <request command="getbusinessids"></request>  
+</customer>
+
+
+
+getamenitieids  ---------   return list with all hotel/apartment amenities.
+
+
+<customer>
+    <username>Amnahvisitor1</username>
+    <password>7ea4255960e43cb18bbcd5eb94b72318</password>
+    <id>1789605</id>
+    <source>1</source>
+     <request command="getamenitieids"></request>  
+</customer>
+
+
+getroomamenitieids  -----return list with all room/apartment amenities.
+
+
+<customer>
+    <username>Amnahvisitor1</username>
+    <password>7ea4255960e43cb18bbcd5eb94b72318</password>
+    <id>1789605</id>
+    <source>1</source>
+     <request command="getroomamenitieids"></request>  
+</customer>
+
+
+
+
+getsalutationsids   ------- return all salutation in system
+
+<customer>
+    <username>Amnahvisitor1</username>
+    <password>7ea4255960e43cb18bbcd5eb94b72318</password>
+    <id>1789605</id>
+    <source>1</source>
+     <request command="getsalutationsids"></request>  
+</customer>
+
+
+
+
+
+getspecialrequestsids       -------     
+
+    This command can be used to receive all the available special requests and their corresponding internal codes for each of the following services - hotel, apartment. 
+    The service you wish to see the special requests for must be specified through the product element.
+
+
+
+<customer>
+    <username>Amnahvisitor1</username>
+    <password>7ea4255960e43cb18bbcd5eb94b72318</password>
+    <id>1789605</id>
+    <source>1</source>
+    <product>hotel</product>  
+    <request command="getspecialrequestsids"></request> 
+</customer>
+
+
+
+
+gethotelchainsids   -------  return list with all chains available for the system.
+
+
+<customer>
+    <username>Amnahvisitor1</username>
+    <password>7ea4255960e43cb18bbcd5eb94b72318</password>
+    <id>1789605</id>
+    <source>1</source>
+     <request command="gethotelchainsids"></request>  
+</customer>
+
+
+
+
+
+gethotelclassificationids   --------   return list with all hotel classification available for the system.
+
+التصنيفات الخاصه بالفنادق
+<customer>
+    <username>Amnahvisitor1</username>
+    <password>7ea4255960e43cb18bbcd5eb94b72318</password>
+    <id>1789605</id>
+    <source>1</source>
+     <request command="gethotelclassificationids"></request>  
+</customer>
+
+
+
+getapartmentclassificationids   ------- return list with all apartment classification available for the system.
+
+التصنيفات الخاصه بالشقق
+<customer>
+    <username>Amnahvisitor1</username>
+    <password>7ea4255960e43cb18bbcd5eb94b72318</password>
+    <id>1789605</id>
+    <source>1</source>
+     <request command="getapartmentclassificationids"></request>  
+</customer>
+
+
+
+
+getratebasisids     -------  list with all the rate bases available in the system. 
+هجيب اﻻسعار بتحدد بناءا ع ايه
+
+
+<customer>
+    <username>Amnahvisitor1</username>
+    <password>7ea4255960e43cb18bbcd5eb94b72318</password>
+    <id>1789605</id>
+    <source>1</source>
+     <request command="getratebasisids"></request>  
+</customer>
+
+
+
+
+
+gettransferstartingtimeids      ------- return list with all transfer starting times available for the system.
+
+<customer>
+    <username>Amnahvisitor1</username>
+    <password>7ea4255960e43cb18bbcd5eb94b72318</password>
+    <id>1789605</id>
+    <source>1</source>
+     <request command="gettransferstartingtimeids"></request>  
+</customer>
+
+
+
+
+getlocationids  -----------     is used to get a complete list with all the locations in a certain city
+
+
+<customer>
+    <username>Amnahvisitor1</username>
+    <password>7ea4255960e43cb18bbcd5eb94b72318</password>
+    <id>1789605</id>
+    <source>1</source>
+    <product>hotel</product>  
+    <request command="getlocationids">  
+        <return>  
+            <filters>  
+                <citycode>404</citycode>  
+            </filters>  
+        </return>  
+    </request>  
+</customer>
+
+
+
+
+gettransferpickupdropofflocationsids   ------ return list with all transfer pick-up/drop-off locations.
+الحصول على قائمة بجميع مواقع النقل / الاستلام.
+
+
+<customer>
+    <username>Amnahvisitor1</username>
+    <password>7ea4255960e43cb18bbcd5eb94b72318</password>
+    <id>1789605</id>
+    <source>1</source>
+     <request command="gettransferpickupdropofflocationsids"></request>  
+</customer>
+
+
+
+
+getrelatedinfotypeids   ------
+
+
+This command is used to get a complete list with all details regarding the info types required to book hotels with additional services.
+
+
+<customer>
+    <username>Amnahvisitor1</username>
+    <password>7ea4255960e43cb18bbcd5eb94b72318</password>
+    <id>1789605</id>
+    <source>1</source>
+     <request command="getrelatedinfotypeids"></request>  
+</customer>
+
+
+
+
+
+getairlinesids  ------  return list with all airlines ids available in the system.s
+
+
+<customer>
+    <username>Amnahvisitor1</username>
+    <password>7ea4255960e43cb18bbcd5eb94b72318</password>
+    <id>1789605</id>
+    <source>1</source>
+     <request command="getairlinesids"></request>  
+</customer>
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    
+getrooms    ------------    
+
+This request is used to get a list of all roomtypes with rates, availability details for each roomtype for a selected hotel. Each response of this request also returns an encrypted string that can be passed in subsequent requests in order to block the desired roomtypes in the system until the booking process has been completed. DOTWconnect system will hold the specified roomtypes for no more than 3 minutes till the booking process is completed.
+
+هترجعلى تفاصيل كل اوضه من اوض فندق معين ...كل response بيرجع معاه استرنج متشفر بحيث ابعته فى ريكوست تانى لو عايزه احجزها   <allocationDetails> ... علشان يوقف حجز اﻻوضه دى لحد تانى لحد ما تتم عمليه الحجز
+
+
+================this is first request for get available rooms in specific hotel=======================
+<customer>
+    <username>Amnahvisitor1</username>
+    <password>7ea4255960e43cb18bbcd5eb94b72318</password>
+    <id>1789605</id>
+    <source>1</source>
+        <product>hotel</product>  
+        <request command="getrooms">  
+            <bookingDetails>  
+                <fromDate>1652598286</fromDate>  
+                <toDate>1653071564</toDate>   
+                <currency>520</currency>  
+                <rooms no="2">  
+                    <room runno="0">  
+                        <adultsCode>2</adultsCode>  
+                        <children no="0"></children>  
+                        <rateBasis>-1</rateBasis>  
+                        <passengerNationality>81</passengerNationality>  
+                        <passengerCountryOfResidence>72</passengerCountryOfResidence>  
+                    </room>  
+                    <room runno="1">  
+                        <adultsCode>2</adultsCode>  
+                        <children no="1">  
+                            <child runno="0">6</child>  
+                        </children>  
+                        <rateBasis>-1</rateBasis>  
+                        <passengerNationality>81</passengerNationality>  
+                        <passengerCountryOfResidence>72</passengerCountryOfResidence>  
+                    </room>  
+                </rooms>  
+                <productId>31104</productId>  
+            </bookingDetails>  
+        </request>  
+</customer>
+
+
+================then we need to send token to another request to book this room=======================
+================this is second request for book rooms in specific hotel=======================
+
+<p>  
+    <customer>  
+        <username></username>  
+        <password></password>  
+        <id></id>  
+        <source>1</source>  
+        <product>hotel</product>  
+        <request command="getrooms">  
+            <bookingDetails>  
+                <fromDate>1451606400</fromDate>  
+                <toDate>1451692800</toDate>  
+                <currency>520</currency>  
+                <rooms no="2">  
+                    <room runno="0">  
+                        <adultsCode>2</adultsCode>  
+                        <children no="0"></children>  
+                        <rateBasis>-1</rateBasis>  
+                        <passengerNationality>81</passengerNationality>  
+                        <passengerCountryOfResidence>72</passengerCountryOfResidence>  
+                        <roomTypeSelected>  
+                            <code>6945328</code>  
+                            <selectedRateBasis>0</selectedRateBasis>  
+                            <allocationDetails>YTo1OntzOjM6InNpZCI7aToxMDExO3M6NDoic2Jp I7czoxOiJuIjtpOjE7czozOiJzY2EiO2E6OTp7czoyOiJjYyI7czozOiIzNjYiO3M6MjoidHIiO2k6MTE4MDgwMDtz OjI6InJjIjtzOjQ6IklQUkkiO3M6MzoiY2ljIjtzOjc6IkNSOTU5MjciO3M6MzoicnBjIjtzOjQ6IklQUkkiO3M6Nj oiY3J1bGVzIjthOjM6e2k6MDtPOjE2OiJDYW5jZWxsYXRpb25SdWxlIjoxNjp7czo4OiJmcm9tRGF0ZSI7TjtzOjY6 InRvRGF0ZSI7czoxOToiMjAxNS0xMi0yOSAyMjowMDowMCI7czo4OiJ0aW1lem9uZSI7aTozMDA7czoxODoicmV0dX JuZWRCeVN1cHBsaWVyIjtiOjA7czoyMDoiY2FuY2VsbGF0aW9uUnVsZVRleHQiO047czoxNDoiY2FuY2VsUG9zc2li bGUiO2I6MTtzOjEzOiJhbWVuZFBvc3NpYmxlIjtiOjE7czo2OiJub1Nob3ciO2I6MDtzOjE3OiJhcnJBZGRpdGlvbm FsSW5mbyI7TjtzOjE2OiJvYmpQcmljZUN1c3RvbWVyIjtOO3M6MTU6InByaWNlVmFsdWVBbWVuZCI7aTowO3M6MTA6 InByaWNlVmFsdWUiO2k6MDtzOjk6ImZvcm1hdHRlZCI7TjtzOjEzOiJwcmljZUN1cnJlbmN5IjtzOjM6IjUyMCI7cz oyMToicHJpY2VJbmNsdWRlc0FsbFRheGVzIjtiOjE7czoxOToibWluaW11bVNlbGxpbmdQcmljZSI7aTowO31pOjE7 TzoxNjoiQ2FuY2VsbGF0aW9uUnVsZSI6MTY6e3M6ODoiZnJvbURhdGUiO3M6MTk6IjIwMTUtMTItMjkgMjI6MDA6MD EiO3M6NjoidG9EYXRlIjtzOjE5OiIyMDE1LTEyLTMxIDAyOjAwOjAwIjtzOjg6InRpbWV6b25lIjtpOjMwMDtzOjE4 OiJyZXR1cm5lZEJ5U3VwcGxpZXIiO2I6MTtzOjIwOiJjYW5jZWxsYXRpb25SdWxlVGV4dCI7TjtzOjE0OiJjYW5jZW xQb3NzaWJsZSI7YjoxO3M6MTM6ImFtZW5kUG9zc2libGUiO2I6MTtzOjY6Im5vU2hvdyI7YjowO3M6MTc6ImFyckFk ZGl0aW9uYWxJbmZvIjtOO3M6MTY6Im9ialByaWNlQ3VzdG9tZXIiO047czoxNToicHJpY2VWYWx1ZUFtZW5kIjtkOj E3NC43MTc5Nzc0OTM5MTMwMjU0NTUxODU1NjE0NDA4ODUwNjY5ODYwODM5ODQzNzU7czoxMDoicHJpY2VWYWx1ZSI7 ZDoxNzQuNzE3OTc3NDkzOTEzMDI1NDU1MTg1NTYxNDQwODg1MDY2OTg2MDgzOTg0Mzc1O3M6OToiZm9ybWF0dGVkIj tOO3M6MTM6InByaWNlQ3VycmVuY3kiO3M6MzoiNTIwIjtzOjIxOiJwcmljZUluY2x1ZGVzQWxsVGF4ZXMiO2I6MTtz OjE5OiJtaW5pbXVtU2VsbGluZ1ByaWNlIjtpOjA7fWk6MjtPOjE2OiJDYW5jZWxsYXRpb25SdWxlIjoxNjp7czo4Oi Jmcm9tRGF0ZSI7czoxOToiMjAxNS0xMi0zMSAwMjowMDowMSI7czo2OiJ0b0RhdGUiO047czo4OiJ0aW1lem9uZSI7 aTozMDA7czoxODoicmV0dXJuZWRCeVN1cHBsaWVyIjtiOjE7czoyMDoiY2FuY2VsbGF0aW9uUnVsZVRleHQiO047cz oxNDoiY2FuY2VsUG9zc2libGUiO2I6MDtzOjEzOiJhbWVuZFBvc3NpYmxlIjtiOjA7czo2OiJub1Nob3ciO2I6MDtz OjE3OiJhcnJBZGRpdGlvbmFsSW5mbyI7TjtzOjE2OiJvYmpQcmljZUN1c3RvbWVyIjtOO3M6MTU6InByaWNlVmFsdW ==</allocationDetails>  
+                        </roomTypeSelected>  
+                    </room>  
+                    <room runno="1">  
+                        <adultsCode>2</adultsCode>  
+                        <children no="1">  
+                            <child runno="0">6</child>  
+                        </children>  
+                        <rateBasis>-1</rateBasis>  
+                        <passengerNationality>81</passengerNationality>  
+                        <passengerCountryOfResidence>72</passengerCountryOfResidence>  
+                        <roomTypeSelected>  
+                            <code>6945338</code>  
+                            <selectedRateBasis>0</selectedRateBasis>  
+                            <allocationDetails>YTo1OntzOjM6InNpZCI7aToxMDExO3M6NDoic2Jp I7czoxOiJuIjtpOjE7czozOiJzY2EiO2E6OTp7czoyOiJjYyI7czozOiIzNjYiO3M6MjoidHIiO2k6MTE4MDgwMDtz OjI6InJjIjtzOjQ6IklQUkkiO3M6MzoiY2ljIjtzOjc6IkNSOTU5MjciO3M6MzoicnBjIjtzOjQ6IklQUkkiO3M6Nj oiY3J1bGVzIjthOjM6e2k6MDtPOjE2OiJDYW5jZWxsYXRpb25SdWxlIjoxNjp7czo4OiJmcm9tRGF0ZSI7TjtzOjY6 InRvRGF0ZSI7czoxOToiMjAxNS0xMi0yOSAyMjowMDowMCI7czo4OiJ0aW1lem9uZSI7aTozMDA7czoxODoicmV0dX JuZWRCeVN1cHBsaWVyIjtiOjA7czoyMDoiY2FuY2VsbGF0aW9uUnVsZVRleHQiO047czoxNDoiY2FuY2VsUG9zc2li bGUiO2I6MTtzOjEzOiJhbWVuZFBvc3NpYmxlIjtiOjE7czo2OiJub1Nob3ciO2I6MDtzOjE3OiJhcnJBZGRpdGlvbm FsSW5mbyI7TjtzOjE2OiJvYmpQcmljZUN1c3RvbWVyIjtOO3M6MTU6InByaWNlVmFsdWVBbWVuZCI7aTowO3M6MTA6 InByaWNlVmFsdWUiO2k6MDtzOjk6ImZvcm1hdHRlZCI7TjtzOjEzOiJwcmljZUN1cnJlbmN5IjtzOjM6IjUyMCI7cz oyMToicHJpY2VJbmNsdWRlc0FsbFRheGVzIjtiOjE7czoxOToibWluaW11bVNlbGxpbmdQcmljZSI7aTowO31pOjE7 TzoxNjoiQ2FuY2VsbGF0aW9uUnVsZSI6MTY6e3M6ODoiZnJvbURhdGUiO3M6MTk6IjIwMTUtMTItMjkgMjI6MDA6MD EiO3M6NjoidG9EYXRlIjtzOjE5OiIyMDE1LTEyLTMxIDAyOjAwOjAwIjtzOjg6InRpbWV6b25lIjtpOjMwMDtzOjE4 OiJyZXR1cm5lZEJ5U3VwcGxpZXIiO2I6MTtzOjIwOiJjYW5jZWxsYXRpb25SdWxlVGV4dCI7TjtzOjE0OiJjYW5jZW xQb3NzaWJsZSI7YjoxO3M6MTM6ImFtZW5kUG9zc2libGUiO2I6MTtzOjY6Im5vU2hvdyI7YjowO3M6MTc6ImFyckFk ZGl0aW9uYWxJbmZvIjtOO3M6MTY6Im9ialByaWNlQ3VzdG9tZXIiO047czoxNToicHJpY2VWYWx1ZUFtZW5kIjtkOj E3NC43MTc5Nzc0OTM5MTMwMjU0NTUxODU1NjE0NDA4ODUwNjY5ODYwODM5ODQzNzU7czoxMDoicHJpY2VWYWx1ZSI7 ZDoxNzQuNzE3OTc3NDkzOTEzMDI1NDU1MTg1NTYxNDQwODg1MDY2OTg2MDgzOTg0Mzc1O3M6OToiZm9ybWF0dGVkIj tOO3M6MTM6InByaWNlQ3VycmVuY3kiO3M6MzoiNTIwIjtzOjIxOiJwcmljZUluY2x1ZGVzQWxsVGF4ZXMiO2I6MTtz OjE5OiJtaW5pbXVtU2VsbGluZ1ByaWNlIjtpOjA7fWk6MjtPOjE2OiJDYW5jZWxsYXRpb25SdWxlIjoxNjp7czo4Oi Jmcm9tRGF0ZSI7czoxOToiMjAxNS0xMi0zMSAwMjowMDowMSI7czo2OiJ0b0RhdGUiO047czo4OiJ0aW1lem9uZSI7 aTozMDA7czoxODoicmV0dXJuZWRCeVN1cHBsaWVyIjtiOjE7czoyMDoiY2FuY2VsbGF0aW9uUnVsZVRleHQiO047cz oxNDoiY2FuY2VsUG9zc2libGUiO2I6MDtzOjEzOiJhbWVuZFBvc3NpYmxlIjtiOjA7czo2OiJub1Nob3ciO2I6MDtz OjE3OiJhcnJBZGRpdGlvbmFsSW5mbyI7TjtzOjE2OiJvYmpQcmljZUN1c3RvbWVyIjtOO3M6MTU6InByaWNlVmFsdW ==</allocationDetails>  
+                        </roomTypeSelected>  
+                    </room>  
+                </rooms>  
+                <productId>30844</productId>  
+            </bookingDetails>  
+        </request>  
+    </customer>  
+</p>  
+
+================this is second request for book rooms in specific hotel=======================
+<customer>
+    <username>Amnahvisitor1</username>
+    <password>7ea4255960e43cb18bbcd5eb94b72318</password>
+    <id>1789605</id>
+    <source>1</source>
+        <product>hotel</product>  
+        <request command="getrooms">  
+            <bookingDetails>  
+                <fromDate>1652684686</fromDate>  
+                <toDate>1653071564</toDate> 
+                <currency>520</currency>  
+                <rooms no="2">  
+                    <room runno="0">  
+                        <adultsCode>2</adultsCode>  
+                        <children no="0"></children>  
+                        <rateBasis>-1</rateBasis>  
+                        <passengerNationality>81</passengerNationality>  
+                        <passengerCountryOfResidence>72</passengerCountryOfResidence>  
+                        <roomTypeSelected>  
+                            <code>61464</code>  
+                            <selectedRateBasis>0</selectedRateBasis>  
+                            <allocationDetails>1652608438000005B1000B0</allocationDetails>  
+                        </roomTypeSelected>  
+                    </room>  
+                    <room runno="1">  
+                        <adultsCode>2</adultsCode>  
+                        <children no="1">  
+                            <child runno="0">6</child>  
+                        </children>  
+                        <rateBasis>-1</rateBasis>  
+                        <passengerNationality>81</passengerNationality>  
+                        <passengerCountryOfResidence>72</passengerCountryOfResidence>  
+                        <roomTypeSelected>  
+                            <code>45387045</code>  
+                            <selectedRateBasis>0</selectedRateBasis>  
+                            <allocationDetails>1652608440000001B1011B0</allocationDetails>  
+                        </roomTypeSelected>  
+                    </room>  
+                </rooms>  
+                <productId>31104</productId>  
+            </bookingDetails>  
+        </request>    
+</customer>
+
+
+لو تم حجز اﻻوضه هيرجعلى فى الحاله انها checked 
+In this case we managed to successfully block both selected rooms (both rooms were returned with <status>checked</status>).
+

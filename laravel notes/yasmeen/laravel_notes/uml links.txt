@@ -1,0 +1,11 @@
+How to draw UML diagrams with code - PlantUML
++++++++
+https://plantuml.com/class-diagram
+
+https://www.youtube.com/watch?v=EM-cvRubP4g&ab_channel=Smok
+
+https://www.youtube.com/watch?v=Dd0bJlHDwLY&ab_channel=TechProductivity
+
+https://www.codeproject.com/Articles/1278703/UML-Made-Easy-with-PlantUML-VS-Code
+
+https://plantuml.com/skinparam
